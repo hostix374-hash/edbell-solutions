@@ -220,6 +220,18 @@ export default function AdminDashboard() {
   const [uploadingCampus, setUploadingCampus] = useState(false);
   const [campusUploadMessage, setCampusUploadMessage] = useState('');
   
+  // Services hero image states
+  const [servicesImageFile, setServicesImageFile] = useState<File | null>(null);
+  const [servicesImagePreview, setServicesImagePreview] = useState<string>('');
+  const [uploadingServices, setUploadingServices] = useState(false);
+  const [servicesUploadMessage, setServicesUploadMessage] = useState('');
+  
+  // Gallery hero image states
+  const [galleryHeroFile, setGalleryHeroFile] = useState<File | null>(null);
+  const [galleryHeroPreview, setGalleryHeroPreview] = useState<string>('');
+  const [uploadingGalleryHero, setUploadingGalleryHero] = useState(false);
+  const [galleryHeroUploadMessage, setGalleryHeroUploadMessage] = useState('');
+  
   // Analytics state
   const [analyticsData, setAnalyticsData] = useState({
     totalVisitors: 0,
@@ -3017,6 +3029,108 @@ export default function AdminDashboard() {
     }
   };
 
+  // Services Image Handlers
+  const handleServicesImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setServicesImageFile(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setServicesImagePreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleServicesImageUpload = async () => {
+    if (!servicesImageFile) {
+      setServicesUploadMessage('Please select an image first');
+      return;
+    }
+
+    setUploadingServices(true);
+    setServicesUploadMessage('');
+
+    try {
+      const formData = new FormData();
+      formData.append('file', servicesImageFile);
+      formData.append('filename', 'about-team.jpg');
+
+      const response = await fetch('/api/upload-hero', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setServicesUploadMessage('✓ Services image uploaded successfully! Refresh the services page to see changes.');
+        setServicesImageFile(null);
+        setServicesImagePreview('');
+        const fileInput = document.getElementById('services-image-input') as HTMLInputElement;
+        if (fileInput) fileInput.value = '';
+      } else {
+        setServicesUploadMessage(`✗ Upload failed: ${data.error || 'Unknown error'}`);
+      }
+    } catch (error) {
+      setServicesUploadMessage('✗ Upload failed. Please try again.');
+      console.error('Services image upload error:', error);
+    } finally {
+      setUploadingServices(false);
+    }
+  };
+
+  // Gallery Hero Image Handlers
+  const handleGalleryHeroSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setGalleryHeroFile(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setGalleryHeroPreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleGalleryHeroUpload = async () => {
+    if (!galleryHeroFile) {
+      setGalleryHeroUploadMessage('Please select an image first');
+      return;
+    }
+
+    setUploadingGalleryHero(true);
+    setGalleryHeroUploadMessage('');
+
+    try {
+      const formData = new FormData();
+      formData.append('file', galleryHeroFile);
+      formData.append('filename', 'about-campus.jpg');
+
+      const response = await fetch('/api/upload-campus', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setGalleryHeroUploadMessage('✓ Gallery hero image uploaded successfully! Refresh the gallery page to see changes.');
+        setGalleryHeroFile(null);
+        setGalleryHeroPreview('');
+        const fileInput = document.getElementById('gallery-hero-input') as HTMLInputElement;
+        if (fileInput) fileInput.value = '';
+      } else {
+        setGalleryHeroUploadMessage(`✗ Upload failed: ${data.error || 'Unknown error'}`);
+      }
+    } catch (error) {
+      setGalleryHeroUploadMessage('✗ Upload failed. Please try again.');
+      console.error('Gallery hero upload error:', error);
+    } finally {
+      setUploadingGalleryHero(false);
+    }
+  };
+
   const renderHeroImagesSection = () => (
     <div className="space-y-6">
       {/* Header */}
@@ -3265,6 +3379,170 @@ export default function AdminDashboard() {
                       : 'bg-red-100 text-red-800'
                   }`}>
                     {campusUploadMessage}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Services Page Hero Image */}
+      <div className="bg-white rounded-lg shadow-sm border">
+        <div className="p-6 border-b bg-gradient-to-r from-orange-50 to-yellow-50">
+          <div className="flex items-center space-x-3">
+            <Briefcase className="h-6 w-6 text-orange-600" />
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900">Services Page Hero Image</h3>
+              <p className="text-sm text-gray-600">Team/Services image displayed on the services page hero section</p>
+            </div>
+          </div>
+        </div>
+        <div className="p-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Current Image */}
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-3">Current Image</h4>
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <img 
+                  src="/about-team.jpg" 
+                  alt="Current Services Hero" 
+                  className="w-full h-64 object-cover rounded-lg border-2 border-gray-200"
+                  onError={(e) => {
+                    e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23ddd" width="400" height="300"/%3E%3Ctext fill="%23999" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
+                  }}
+                />
+                <p className="text-xs text-gray-500 mt-2">Path: /public/about-team.jpg</p>
+              </div>
+            </div>
+
+            {/* Upload New */}
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-3">Upload New Image</h4>
+              <div className="space-y-4">
+                <div>
+                  <input
+                    id="services-image-input"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleServicesImageSelect}
+                    className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-orange-600 file:text-white hover:file:bg-orange-700 cursor-pointer"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">Recommended: 800x600px or larger, JPG/PNG</p>
+                </div>
+
+                {servicesImagePreview && (
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <p className="text-sm font-medium text-gray-700 mb-2">Preview:</p>
+                    <img 
+                      src={servicesImagePreview} 
+                      alt="Preview" 
+                      className="w-full h-48 object-cover rounded-lg border-2 border-orange-300"
+                    />
+                  </div>
+                )}
+
+                <button
+                  onClick={handleServicesImageUpload}
+                  disabled={!servicesImageFile || uploadingServices}
+                  className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-colors ${
+                    !servicesImageFile || uploadingServices
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-orange-600 hover:bg-orange-700'
+                  }`}
+                >
+                  {uploadingServices ? 'Uploading...' : 'Upload Services Hero Image'}
+                </button>
+
+                {servicesUploadMessage && (
+                  <div className={`p-3 rounded-lg text-sm ${
+                    servicesUploadMessage.includes('✓') 
+                      ? 'bg-green-100 text-green-800' 
+                      : 'bg-red-100 text-red-800'
+                  }`}>
+                    {servicesUploadMessage}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Gallery Page Hero Image */}
+      <div className="bg-white rounded-lg shadow-sm border">
+        <div className="p-6 border-b bg-gradient-to-r from-pink-50 to-purple-50">
+          <div className="flex items-center space-x-3">
+            <Award className="h-6 w-6 text-pink-600" />
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900">Gallery Page Hero Image</h3>
+              <p className="text-sm text-gray-600">Campus/Gallery image displayed on the gallery page hero section</p>
+            </div>
+          </div>
+        </div>
+        <div className="p-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Current Image */}
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-3">Current Image</h4>
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <img 
+                  src="/about-campus.jpg" 
+                  alt="Current Gallery Hero" 
+                  className="w-full h-64 object-cover rounded-lg border-2 border-gray-200"
+                  onError={(e) => {
+                    e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23ddd" width="400" height="300"/%3E%3Ctext fill="%23999" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
+                  }}
+                />
+                <p className="text-xs text-gray-500 mt-2">Path: /public/about-campus.jpg</p>
+              </div>
+            </div>
+
+            {/* Upload New */}
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-3">Upload New Image</h4>
+              <div className="space-y-4">
+                <div>
+                  <input
+                    id="gallery-hero-input"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleGalleryHeroSelect}
+                    className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-pink-600 file:text-white hover:file:bg-pink-700 cursor-pointer"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">Recommended: 800x600px or larger, JPG/PNG</p>
+                </div>
+
+                {galleryHeroPreview && (
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <p className="text-sm font-medium text-gray-700 mb-2">Preview:</p>
+                    <img 
+                      src={galleryHeroPreview} 
+                      alt="Preview" 
+                      className="w-full h-48 object-cover rounded-lg border-2 border-pink-300"
+                    />
+                  </div>
+                )}
+
+                <button
+                  onClick={handleGalleryHeroUpload}
+                  disabled={!galleryHeroFile || uploadingGalleryHero}
+                  className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-colors ${
+                    !galleryHeroFile || uploadingGalleryHero
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-pink-600 hover:bg-pink-700'
+                  }`}
+                >
+                  {uploadingGalleryHero ? 'Uploading...' : 'Upload Gallery Hero Image'}
+                </button>
+
+                {galleryHeroUploadMessage && (
+                  <div className={`p-3 rounded-lg text-sm ${
+                    galleryHeroUploadMessage.includes('✓') 
+                      ? 'bg-green-100 text-green-800' 
+                      : 'bg-red-100 text-red-800'
+                  }`}>
+                    {galleryHeroUploadMessage}
                   </div>
                 )}
               </div>
