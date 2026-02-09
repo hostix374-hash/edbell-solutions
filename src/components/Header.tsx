@@ -65,43 +65,25 @@ const Header = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group">
             <div className="relative">
-              <div className="w-10 h-10 lg:w-12 lg:h-12 gradient-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-200">
-                <span className="text-white font-bold text-lg lg:text-xl">E</span>
-              </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-cyan-400 rounded-full animate-pulse"></div>
-            </div>
-            <div className="hidden xs:block">
-              <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">EdBell</h1>
-              <p className="text-xs text-gray-500 -mt-1 hidden sm:block">Education Solutions</p>
+              <img 
+                src="/edbell-logo.png" 
+                alt="EdBell EduSolutions" 
+                className="h-10 lg:h-12 w-auto object-contain transition-all duration-200 group-hover:scale-105"
+              />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
             {navigation.map((item) => (
-              <div key={item.name} className="relative group">
-                <Link
-                  href={item.href}
-                  className="relative px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-gray-700 hover:text-blue-600 rounded-lg transition-all duration-200 mobile-touch-target block"
-                >
-                  {item.name}
-                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-8 group-hover:left-1/2 transform -translate-x-1/2"></span>
-                </Link>
-                
-                {/* Image Preview on Hover */}
-                {item.image && (
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                    <div className="bg-white rounded-lg shadow-xl border border-gray-200 p-2 w-48">
-                      <img 
-                        src={item.image} 
-                        alt={item.name}
-                        className="w-full h-32 object-cover rounded-lg"
-                      />
-                      <p className="text-xs text-gray-600 mt-2 text-center font-medium">{item.name}</p>
-                    </div>
-                  </div>
-                )}
-              </div>
+              <Link
+                key={item.name}
+                href={item.href}
+                className="relative px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-gray-700 hover:text-blue-600 rounded-lg transition-all duration-200 mobile-touch-target block"
+              >
+                {item.name}
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-8 group-hover:left-1/2 transform -translate-x-1/2"></span>
+              </Link>
             ))}
           </nav>
 
@@ -176,10 +158,11 @@ const Header = () => {
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-100">
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 gradient-secondary rounded-lg flex items-center justify-center">
-                      <span className="text-white font-bold text-sm">E</span>
-                    </div>
-                    <span className="font-bold text-gray-900">EdBell</span>
+                    <img 
+                      src="/edbell-logo.png" 
+                      alt="EdBell EduSolutions" 
+                      className="h-8 w-auto object-contain"
+                    />
                   </div>
                   <button
                     onClick={() => setIsMenuOpen(false)}

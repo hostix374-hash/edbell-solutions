@@ -172,7 +172,7 @@ export default function Home() {
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-gray-900">
                 Guiding Students to the
-                <span className="block text-blue-600">Right Education Path</span>
+                <span className="block text-blue-600 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">Right Education Path</span>
               </h1>
               <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
                 UGC-approved online degrees with expert guidance.

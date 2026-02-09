@@ -98,13 +98,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center mobile-touch-target">
-                <span className="text-white font-bold text-lg sm:text-xl">E</span>
-              </div>
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold">EdBell</h3>
-                <p className="text-gray-400 text-sm">EDUSOLUTIONS LLP</p>
-              </div>
+              <img 
+                src="/edbell-logo.png" 
+                alt="EdBell EduSolutions" 
+                className="h-12 sm:h-14 w-auto object-contain brightness-0 invert"
+              />
             </div>
             <p className="text-gray-300 mb-6 text-sm sm:text-base leading-relaxed">
               Empowering students with quality education and comprehensive support services. Your success is our mission.

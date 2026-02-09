@@ -345,84 +345,73 @@ export default function Services() {
       </section>
 
       {/* Main Services */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards]">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-10 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards]">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Our Core Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Comprehensive educational solutions tailored to your needs
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {mainServices.map((service, index) => (
               <div 
                 key={index} 
-                className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards] group"
+                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards] group flex flex-col min-h-[420px]"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex items-start space-x-4 mb-6">
+                <div className="flex items-start space-x-3 mb-5">
                   <div className="flex-shrink-0 transform group-hover:scale-110 transition-transform duration-300">
-                    {service.icon}
+                    <div className="w-12 h-12 flex items-center justify-center">
+                      {service.icon}
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300 leading-tight">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 mb-4">{service.description}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed mt-2">{service.description}</p>
                   </div>
                 </div>
                 
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
-                      <CheckCircle className="h-5 w-5 text-blue-600 mr-2" />
+                <div className="space-y-4 flex-1 flex flex-col">
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center text-sm">
+                      <CheckCircle className="h-4 w-4 text-blue-600 mr-1.5 flex-shrink-0" />
                       Key Features
                     </h4>
                     <ul className="space-y-2">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start text-gray-600 text-sm">
-                          <span className="text-blue-600 mr-2">•</span>
-                          {feature}
+                      {service.features.slice(0, 3).map((feature, idx) => (
+                        <li key={idx} className="flex items-start text-gray-600 text-sm leading-relaxed">
+                          <span className="text-blue-600 mr-2 flex-shrink-0 mt-0.5">•</span>
+                          <span className="flex-1">{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
-                      <Award className="h-5 w-5 text-blue-600 mr-2" />
-                      Benefits
-                    </h4>
-                    <ul className="space-y-2">
-                      {service.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-start text-gray-600 text-sm">
-                          <span className="text-blue-600 mr-2">•</span>
-                          {benefit}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <div>
-                      <p className="text-sm text-gray-500">Starting from</p>
-                      <p className="text-xl font-bold text-blue-600">{service.pricing}</p>
+                  <div className="mt-auto pt-4 border-t border-gray-100 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-xs text-gray-500 mb-1">Starting from</p>
+                        <p className="text-lg font-bold text-blue-600">{service.pricing}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-xs text-gray-500 mb-1">Duration</p>
+                        <p className="text-sm font-semibold text-gray-900">{service.duration}</p>
+                      </div>
                     </div>
-                    <div className="text-right">
-                      <p className="text-sm text-gray-500">Duration</p>
-                      <p className="text-sm font-semibold text-gray-900">{service.duration}</p>
-                    </div>
+                    
+                    <Link 
+                      href={`/contact?service=${encodeURIComponent(service.title.toLowerCase().replace(/\s+/g, '-'))}`}
+                      className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 transform hover:scale-105"
+                    >
+                      Get Started
+                    </Link>
                   </div>
-                  
-                  <Link 
-                    href={`/contact?service=${encodeURIComponent(service.title.toLowerCase().replace(/\s+/g, '-'))}`}
-                    className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-                  >
-                    Get Started
-                  </Link>
                 </div>
               </div>
             ))}
@@ -431,46 +420,46 @@ export default function Services() {
       </section>
 
       {/* Additional Services */}
-      <section className="bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Additional Services
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg text-gray-600">
               More services for your educational journey
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {additionalServices.map((service, index) => (
               <div 
                 key={index} 
-                className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 group opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
+                className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 group opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                <div className="flex items-center space-x-3 mb-4">
+                <div className="flex items-center space-x-2 mb-3">
                   <div className="transform group-hover:scale-110 transition-transform duration-300">
                     {service.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">{service.title}</h3>
+                  <h3 className="text-base font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">{service.title}</h3>
                 </div>
-                <p className="text-gray-600 mb-4 text-sm">{service.description}</p>
-                <div className="space-y-2 mb-4">
-                  {service.details.map((detail, detailIndex) => (
-                    <div key={detailIndex} className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
-                      <span className="text-sm text-gray-600">{detail}</span>
+                <p className="text-gray-600 mb-3 text-xs">{service.description}</p>
+                <div className="space-y-1 mb-3">
+                  {service.details.slice(0, 3).map((detail, detailIndex) => (
+                    <div key={detailIndex} className="flex items-center space-x-1.5">
+                      <div className="w-1 h-1 bg-blue-600 rounded-full"></div>
+                      <span className="text-xs text-gray-600">{detail}</span>
                     </div>
                   ))}
                 </div>
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className="text-blue-600 font-semibold text-sm">{service.pricing}</span>
+                <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                  <span className="text-blue-600 font-semibold text-xs">{service.pricing}</span>
                   <Link 
                     href={`/contact?service=${encodeURIComponent(service.title.toLowerCase().replace(/\s+/g, '-'))}`}
-                    className="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center group-hover:translate-x-1 transition-transform duration-300"
+                    className="text-blue-600 hover:text-blue-700 text-xs font-medium flex items-center group-hover:translate-x-1 transition-transform duration-300"
                   >
-                    Learn More <ArrowRight className="h-4 w-4 ml-1" />
+                    Learn More <ArrowRight className="h-3 w-3 ml-1" />
                   </Link>
                 </div>
               </div>
@@ -480,13 +469,13 @@ export default function Services() {
       </section>
 
       {/* Service Process */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               How We Work
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg text-gray-600">
               Our systematic approach for best outcomes
             </p>
           </div>
@@ -515,37 +504,37 @@ export default function Services() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-b from-gray-50 to-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               What Our Students Say
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg text-gray-600">
               Success stories from our students
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index} 
-                className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
+                className="bg-white p-5 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex items-center space-x-1 mb-4">
+                <div className="flex items-center space-x-1 mb-3">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-6 italic">"{testimonial.content}"</p>
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center">
-                    <Users className="h-6 w-6 text-blue-600" />
+                <p className="text-gray-700 mb-4 italic text-sm">"{testimonial.content}"</p>
+                <div className="flex items-center space-x-2">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center">
+                    <Users className="h-5 w-5 text-blue-600" />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                    <p className="text-sm text-gray-600">{testimonial.role}</p>
+                    <p className="font-semibold text-gray-900 text-sm">{testimonial.name}</p>
+                    <p className="text-xs text-gray-600">{testimonial.role}</p>
                   </div>
                 </div>
               </div>
@@ -555,29 +544,29 @@ export default function Services() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg text-gray-600">
               Common questions about our services
             </p>
           </div>
           
-          <div className="space-y-4">
+          <div className="space-y-3">
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
+                className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-start">
-                  <MessageCircle className="h-5 w-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                <h3 className="text-base font-semibold text-gray-900 mb-2 flex items-start">
+                  <MessageCircle className="h-4 w-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
                   {faq.question}
                 </h3>
-                <p className="text-gray-600 ml-8">{faq.answer}</p>
+                <p className="text-gray-600 text-sm ml-6">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -585,52 +574,52 @@ export default function Services() {
       </section>
 
       {/* Contact Section */}
-      <section className="bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Get in Touch
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg text-gray-600">
               Contact us for personalized assistance
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 text-center group transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Phone className="h-8 w-8 text-blue-600" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 text-center group transform hover:-translate-y-1">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Phone className="h-6 w-6 text-blue-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Call Us</h3>
-              <p className="text-gray-600 mb-4">Speak directly with our counselors</p>
-              <div className="space-y-2">
-                <a href="tel:+919876543210" className="block text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300">
+              <h3 className="text-base font-semibold text-gray-900 mb-2">Call Us</h3>
+              <p className="text-gray-600 mb-3 text-sm">Speak directly with our counselors</p>
+              <div className="space-y-1">
+                <a href="tel:+919876543210" className="block text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300 text-sm">
                   +91 98765 43210
                 </a>
-                <a href="tel:+918765432109" className="block text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300">
+                <a href="tel:+918765432109" className="block text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300 text-sm">
                   +91 87654 32109
                 </a>
               </div>
             </div>
             
-            <div className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 text-center group transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-cyan-100 to-cyan-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Mail className="h-8 w-8 text-cyan-600" />
+            <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 text-center group transform hover:-translate-y-1">
+              <div className="w-12 h-12 bg-gradient-to-br from-cyan-100 to-cyan-200 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Mail className="h-6 w-6 text-cyan-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Us</h3>
-              <p className="text-gray-600 mb-4">Send us your queries anytime</p>
-              <a href="mailto:info@edbelledusolutions.com" className="text-cyan-600 hover:text-cyan-800 font-semibold transition-colors duration-300 break-all">
+              <h3 className="text-base font-semibold text-gray-900 mb-2">Email Us</h3>
+              <p className="text-gray-600 mb-3 text-sm">Send us your queries anytime</p>
+              <a href="mailto:info@edbelledusolutions.com" className="text-cyan-600 hover:text-cyan-800 font-semibold transition-colors duration-300 break-all text-sm">
                 info@edbelledusolutions.com
               </a>
             </div>
             
-            <div className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 text-center group transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Calendar className="h-8 w-8 text-indigo-600" />
+            <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 text-center group transform hover:-translate-y-1">
+              <div className="w-12 h-12 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Calendar className="h-6 w-6 text-indigo-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Schedule Meeting</h3>
-              <p className="text-gray-600 mb-4">Book a consultation session</p>
-              <Link href="/contact" className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+              <h3 className="text-base font-semibold text-gray-900 mb-2">Schedule Meeting</h3>
+              <p className="text-gray-600 mb-3 text-sm">Book a consultation session</p>
+              <Link href="/contact" className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold py-2 px-5 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm">
                 Book Appointment
               </Link>
             </div>

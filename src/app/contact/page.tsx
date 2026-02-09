@@ -222,36 +222,113 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-800 via-blue-900 to-blue-700 min-h-[600px] lg:min-h-[700px]">
-        {/* 3D Animated Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500/30 rounded-full blur-3xl animate-pulse transform-gpu"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-400/25 rounded-full blur-3xl animate-pulse delay-1000 transform-gpu"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl animate-pulse delay-500 transform-gpu"></div>
+      {/* Hero Section - Light Blue Design */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 min-h-[500px] lg:min-h-[600px]">
+        {/* Animated Background Pattern */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-0 w-full h-full">
+            <div className="absolute top-10 left-10 w-72 h-72 bg-blue-200 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-200 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-blue-300 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+          </div>
         </div>
-        <div className="relative mobile-container py-24 sm:py-28 lg:py-32 text-center flex items-center justify-center min-h-[600px] lg:min-h-[700px]">
-          <div className="max-w-4xl mx-auto fade-in">
-            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/30 backdrop-blur-sm rounded-2xl mb-6 sm:mb-8 mobile-touch-target transform hover:scale-110 hover:rotate-12 transition-all duration-300 shadow-xl border border-blue-400/30">
-              <Mail className="h-6 w-6 sm:h-8 sm:w-8 text-white animate-bounce" />
+
+        {/* Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-20 h-20 border-4 border-blue-300/40 rounded-lg rotate-12 animate-float"></div>
+          <div className="absolute top-40 right-20 w-16 h-16 border-4 border-cyan-400/40 rounded-full animate-float" style={{ animationDelay: '0.5s' }}></div>
+          <div className="absolute bottom-32 left-1/4 w-12 h-12 border-4 border-blue-400/40 rounded-lg rotate-45 animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-20 right-1/3 w-24 h-24 border-4 border-cyan-300/30 rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
+        </div>
+        
+        <div className="relative mobile-container py-16 sm:py-20 lg:py-24 flex items-center justify-center min-h-[500px] lg:min-h-[600px]">
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Icon Badge */}
+            <div className="inline-flex items-center justify-center mb-6 animate-bounce-slow">
+              <div className="relative">
+                <div className="absolute inset-0 bg-blue-400/30 rounded-2xl blur-xl"></div>
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-white/80 backdrop-blur-md rounded-2xl flex items-center justify-center border-2 border-blue-300/50 shadow-2xl transform hover:scale-110 hover:rotate-12 transition-all duration-300">
+                  <Mail className="h-8 w-8 sm:h-10 sm:w-10 text-blue-600" />
+                </div>
+              </div>
             </div>
-            <h1 className="mobile-hero-text text-white mb-4 sm:mb-6 text-balance transform hover:scale-105 transition-transform duration-300">
-              Get Started Today
+
+            {/* Main Heading */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight animate-fade-in-up">
+              Let's Start Your
+              <span className="block mt-2 bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700 bg-clip-text text-transparent">
+                Success Journey
+              </span>
             </h1>
-            <p className="mobile-body-large text-blue-100 max-w-3xl mx-auto">
-              Ready to transform your career? Get in touch with our expert counselors for personalized guidance 
-              on your educational journey and career goals.
+
+            {/* Description */}
+            <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
+              Connect with our expert counselors for personalized guidance on your educational journey. 
+              We're here to help you achieve your career goals and unlock your full potential.
             </p>
+
+            {/* Stats Row */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto mb-10 animate-fade-in-up animation-delay-300">
+              <div className="bg-white/70 backdrop-blur-md rounded-xl p-4 border border-blue-200/50 hover:bg-white/90 hover:border-blue-300 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1">10K+</div>
+                <div className="text-xs sm:text-sm text-gray-600">Students Guided</div>
+              </div>
+              <div className="bg-white/70 backdrop-blur-md rounded-xl p-4 border border-blue-200/50 hover:bg-white/90 hover:border-blue-300 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1">50+</div>
+                <div className="text-xs sm:text-sm text-gray-600">Universities</div>
+              </div>
+              <div className="bg-white/70 backdrop-blur-md rounded-xl p-4 border border-blue-200/50 hover:bg-white/90 hover:border-blue-300 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1">95%</div>
+                <div className="text-xs sm:text-sm text-gray-600">Success Rate</div>
+              </div>
+              <div className="bg-white/70 backdrop-blur-md rounded-xl p-4 border border-blue-200/50 hover:bg-white/90 hover:border-blue-300 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1">24/7</div>
+                <div className="text-xs sm:text-sm text-gray-600">Support</div>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animation-delay-400">
+              <a
+                href="#contact-form"
+                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300 hover:scale-105 min-w-[200px]"
+              >
+                <Send className="h-5 w-5 mr-2" />
+                Send Message
+              </a>
+              <a
+                href="tel:+919876543210"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white hover:bg-gray-50 text-blue-600 font-semibold rounded-xl shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300 hover:scale-105 min-w-[200px] border-2 border-blue-200"
+              >
+                <Phone className="h-5 w-5 mr-2" />
+                Call Now
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Add floating animation to globals.css if not already present */}
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-20px) rotate(5deg);
+          }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+      `}</style>
+
       {/* Contact Form & Info */}
-      <section className="mobile-section-padding bg-white">
+      <section id="contact-form" className="mobile-section-padding bg-white">
         <div className="mobile-container">
           {/* Centered Contact Form */}
           <div className="max-w-4xl mx-auto">
-            <div className="card card-body">
+            <div className="card card-body shadow-xl">
               <div className="text-center mb-8">
                 <h2 className="heading-2 text-gray-900 mb-4">Send Us a Message</h2>
                 <p className="text-gray-600 max-w-2xl mx-auto">We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
@@ -590,36 +667,6 @@ export default function Contact() {
                 Contact Our Support Team
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Get in Touch Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-cyan-50 to-indigo-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're here to help you with all your educational needs. Reach out to us and our team will get back to you promptly.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
-            {contactInfo.map((info, index) => (
-              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 border border-white/50">
-                <div className="flex flex-col items-center text-center">
-                  <div className={`w-16 h-16 ${info.gradient} rounded-2xl flex items-center justify-center mb-4 shadow-lg`}>
-                    {info.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{info.title}</h3>
-                  <div className="space-y-2">
-                    {info.details.map((detail, detailIndex) => (
-                      <p key={detailIndex} className="text-gray-600 text-sm leading-relaxed">{detail}</p>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

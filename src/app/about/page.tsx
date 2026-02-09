@@ -98,17 +98,20 @@ export default function About() {
               </p>
             </div>
 
-            {/* Bottom Section - Image Showcase */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-              {/* Left Side - Two Stacked Images */}
-              <div className="lg:col-span-4 space-y-6">
-                <div className="relative h-60 sm:h-64 lg:h-[258px] rounded-2xl overflow-hidden shadow-xl transform hover:scale-105 transition-all duration-300 group">
+            {/* Bottom Section - All 3 Images Perfectly Centered */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center max-w-7xl mx-auto">
+              {/* Left Empty Space - 2 columns */}
+              <div className="lg:col-span-2 hidden lg:block"></div>
+              
+              {/* Left Side - Two Stacked Images - 3 columns */}
+              <div className="lg:col-span-3 space-y-6">
+                <div className="relative h-60 sm:h-64 lg:h-[258px] rounded-2xl overflow-hidden shadow-xl transition-all duration-300">
                   <img 
                     src="/about-campus.jpg" 
                     alt="Modern Campus" 
                     className="w-full h-full object-cover object-center"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-transparent to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
                     <div className="flex items-center space-x-2 mb-2">
                       <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-300" />
@@ -118,13 +121,13 @@ export default function About() {
                   </div>
                 </div>
                 
-                <div className="relative h-60 sm:h-64 lg:h-[258px] rounded-2xl overflow-hidden shadow-xl transform hover:scale-105 transition-all duration-300 group">
+                <div className="relative h-60 sm:h-64 lg:h-[258px] rounded-2xl overflow-hidden shadow-xl transition-all duration-300">
                   <img 
                     src="/about-team.jpg" 
                     alt="Expert Team" 
                     className="w-full h-full object-cover object-center"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/80 via-indigo-900/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/70 via-transparent to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
                     <div className="flex items-center space-x-2 mb-2">
                       <Users className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-300" />
@@ -135,17 +138,17 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Center - Main Large Image */}
-              <div className="lg:col-span-8 relative">
-                <div className="relative h-[540px] sm:h-[560px] lg:h-[540px] rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-300">
+              {/* Center - Main Large Image (Dr. Arif) - 4 columns */}
+              <div className="lg:col-span-4 relative">
+                <div className="relative h-[540px] sm:h-[560px] lg:h-[540px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-300">
                   <img 
                     src="/about-professional.jpg" 
-                    alt="EDBELL Leadership" 
+                    alt="EDBELL Leadership - ADV. ARIF WAFY VARAMBATTA" 
                     className="w-full h-full object-cover object-center"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                   
-                  {/* Leadership Info - No White Background */}
+                  {/* Leadership Info */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                     <div className="flex items-start space-x-3 sm:space-x-4">
                       <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-xl">
@@ -166,6 +169,9 @@ export default function About() {
                   </div>
                 </div>
               </div>
+
+              {/* Right Empty Space - 1 column */}
+              <div className="lg:col-span-1 hidden lg:block"></div>
             </div>
           </div>
         </div>

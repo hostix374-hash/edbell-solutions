@@ -118,7 +118,7 @@ export default function Universities() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
       {/* Hero Section - Completely Different Design */}
-      <section className="relative py-6 sm:py-8 lg:py-10 overflow-hidden">
+      <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden min-h-[650px] lg:min-h-[750px]">
         {/* Animated Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-cyan-600/5 to-indigo-600/10"></div>
