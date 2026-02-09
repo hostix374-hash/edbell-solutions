@@ -173,24 +173,6 @@ export default function Gallery() {
           </div>
         </div>
       </section>
-            </p>
-            <div className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 max-w-xs sm:max-w-md mx-auto">
-              <div className="bg-blue-500/20 backdrop-blur-lg text-center p-3 sm:p-4 rounded-xl border border-blue-400/30 hover:bg-blue-500/30 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
-                <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-white">{galleryImages.length}+</div>
-                <div className="text-blue-200 text-xs sm:text-sm">Photos</div>
-              </div>
-              <div className="bg-blue-500/20 backdrop-blur-lg text-center p-3 sm:p-4 rounded-xl border border-blue-400/30 hover:bg-blue-500/30 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
-                <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-white">{categories.length - 1}</div>
-                <div className="text-blue-200 text-xs sm:text-sm">Categories</div>
-              </div>
-              <div className="bg-blue-500/20 backdrop-blur-lg text-center p-3 sm:p-4 rounded-xl border border-blue-400/30 hover:bg-blue-500/30 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">
-                <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-white">2024</div>
-                <div className="text-blue-200 text-xs sm:text-sm">Latest</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Filter Section */}
       <section className="bg-white border-b border-gray-100">
