@@ -259,8 +259,8 @@ export default function Services() {
               <div className="inline-flex items-center bg-blue-100 rounded-full px-4 py-2 mb-4">
                 <span className="text-sm font-medium text-blue-700">🎓 Comprehensive Educational Services</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">Our Services</h1>
-              <p className="text-xl md:text-2xl text-gray-600 max-w-3xl">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900">Our Services</h1>
+              <p className="text-lg md:text-xl text-gray-600 max-w-2xl">
                 Educational and career services for your success.
               </p>
             </div>
@@ -273,12 +273,14 @@ export default function Services() {
                   alt="Educational Services" 
                   className="w-full h-full object-cover"
                 />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent flex items-end">
-                  <div className="p-6 text-white w-full">
-                    <h3 className="text-2xl font-bold mb-2">Expert Guidance</h3>
-                    <p className="text-blue-100">Professional educational services</p>
-                  </div>
+                {/* Text inside image at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 bg-white/95 p-3">
+                  <p className="text-sm font-semibold text-gray-800 text-center">
+                    Expert Educational Services
+                  </p>
+                  <p className="text-xs text-gray-600 text-center">
+                    Professional guidance for your academic journey
+                  </p>
                 </div>
               </div>
             </div>

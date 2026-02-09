@@ -161,12 +161,14 @@ export default function Gallery() {
                   alt="Campus Gallery" 
                   className="w-full h-full object-cover"
                 />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent flex items-end">
-                  <div className="p-6 text-white w-full">
-                    <h3 className="text-2xl font-bold mb-2">Campus Moments</h3>
-                    <p className="text-blue-100">Capturing memories & achievements</p>
-                  </div>
+                {/* Text inside image at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 bg-white/95 p-3">
+                  <p className="text-sm font-semibold text-gray-800 text-center">
+                    Campus Life & Memories
+                  </p>
+                  <p className="text-xs text-gray-600 text-center">
+                    Capturing moments of excellence and achievement
+                  </p>
                 </div>
               </div>
             </div>
