@@ -93,7 +93,7 @@ export default function Universities() {
   const filteredUniversities = universities.filter(university => {
     const matchesSearch = university.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          university.location?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         university.specializations?.toLowerCase().includes(searchTerm.toLowerCase());
+                         university.specialization?.toLowerCase().includes(searchTerm.toLowerCase());
     
     const matchesFilter = selectedFilter === 'all' || 
                          (selectedFilter === 'naac-a++' && university.accreditation === 'NAAC A++') ||
