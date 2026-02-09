@@ -45,10 +45,10 @@ const Header = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Universities', href: '/universities' },
-    { name: 'Courses', href: '/courses' },
-    { name: 'Services', href: '/services' },
-    { name: 'Gallery', href: '/gallery' },
+    { name: 'Universities', href: '/universities', image: '/about-campus.jpg' },
+    { name: 'Courses', href: '/courses', image: '/about-professional.jpg' },
+    { name: 'Services', href: '/services', image: '/about-team.jpg' },
+    { name: 'Gallery', href: '/gallery', image: '/about-campus.jpg' },
     { name: 'Blog', href: '/blog' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
@@ -79,14 +79,29 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="relative px-3 xl:px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 rounded-lg transition-all duration-200 group mobile-touch-target"
-              >
-                {item.name}
-                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-8 group-hover:left-1/2 transform -translate-x-1/2"></span>
-              </Link>
+              <div key={item.name} className="relative group">
+                <Link
+                  href={item.href}
+                  className="relative px-3 xl:px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 rounded-lg transition-all duration-200 mobile-touch-target block"
+                >
+                  {item.name}
+                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-8 group-hover:left-1/2 transform -translate-x-1/2"></span>
+                </Link>
+                
+                {/* Image Preview on Hover */}
+                {item.image && (
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                    <div className="bg-white rounded-lg shadow-xl border border-gray-200 p-2 w-48">
+                      <img 
+                        src={item.image} 
+                        alt={item.name}
+                        className="w-full h-32 object-cover rounded-lg"
+                      />
+                      <p className="text-xs text-gray-600 mt-2 text-center font-medium">{item.name}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </nav>
 
