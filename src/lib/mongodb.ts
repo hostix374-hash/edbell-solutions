@@ -2,8 +2,9 @@ import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI || '';
 
-if (!MONGODB_URI) {
-  throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
+// Only throw error at runtime, not during build
+if (!MONGODB_URI && process.env.NODE_ENV !== 'production') {
+  console.warn('⚠️ MONGODB_URI is not defined. Database features will not work.');
 }
 
 interface GlobalWithMongoose {
@@ -22,6 +23,12 @@ if (!cached) {
 }
 
 async function connectDB() {
+  // If no MongoDB URI, return null (for build time)
+  if (!MONGODB_URI) {
+    console.warn('⚠️ MongoDB URI not configured. Skipping connection.');
+    return null;
+  }
+
   if (cached.conn) {
     return cached.conn;
   }
@@ -59,6 +66,9 @@ async function connectDB() {
 export async function connectToDatabase() {
   try {
     const connection = await connectDB();
+    if (!connection) {
+      throw new Error('MongoDB URI not configured');
+    }
     return {
       db: connection.connection.db
     };
