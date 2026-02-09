@@ -6,6 +6,7 @@ export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
     const file = formData.get('file') as File;
+    const customFilename = formData.get('filename') as string;
     
     if (!file) {
       return NextResponse.json(
@@ -26,9 +27,12 @@ export async function POST(request: NextRequest) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    // Save to public folder as hero-professional.jpg
+    // Determine filename - use custom filename if provided, otherwise default
+    const filename = customFilename || 'hero-professional.jpg';
+
+    // Save to public folder
     const publicPath = path.join(process.cwd(), 'public');
-    const filePath = path.join(publicPath, 'hero-professional.jpg');
+    const filePath = path.join(publicPath, filename);
 
     // Ensure public directory exists
     try {
@@ -43,7 +47,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       message: 'Hero image uploaded successfully',
-      path: '/hero-professional.jpg'
+      path: `/${filename}`
     });
   } catch (error) {
     console.error('Error uploading hero image:', error);
