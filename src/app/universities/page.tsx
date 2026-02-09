@@ -93,7 +93,7 @@ export default function Universities() {
   const filteredUniversities = universities.filter(university => {
     const matchesSearch = university.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          university.location?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         university.specialization?.toLowerCase().includes(searchTerm.toLowerCase());
+                         university.specialization?.some(spec => spec.toLowerCase().includes(searchTerm.toLowerCase()));
     
     const matchesFilter = selectedFilter === 'all' || 
                          (selectedFilter === 'naac-a++' && university.accreditation === 'NAAC A++') ||
@@ -381,7 +381,7 @@ export default function Universities() {
                         <div className="grid grid-cols-3 gap-2 mb-4">
                           <div className="text-center p-3 bg-blue-50 rounded-xl">
                             <Users className="h-5 w-5 text-blue-600 mx-auto mb-1" />
-                            <div className="text-sm font-bold text-gray-900">{university.totalStudents || university.studentsCount || 'N/A'}</div>
+                            <div className="text-sm font-bold text-gray-900">{university.studentsCount || 'N/A'}</div>
                             <div className="text-xs text-gray-600">Students</div>
                           </div>
                           <div className="text-center p-3 bg-cyan-50 rounded-xl">
