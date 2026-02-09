@@ -273,15 +273,6 @@ export default function Services() {
                   alt="Educational Services" 
                   className="w-full h-full object-cover"
                 />
-                {/* Text inside image at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/95 p-3">
-                  <p className="text-sm font-semibold text-gray-800 text-center">
-                    Expert Educational Services
-                  </p>
-                  <p className="text-xs text-gray-600 text-center">
-                    Professional guidance for your academic journey
-                  </p>
-                </div>
               </div>
             </div>
           </div>

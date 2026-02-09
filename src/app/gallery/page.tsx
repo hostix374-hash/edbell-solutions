@@ -161,15 +161,6 @@ export default function Gallery() {
                   alt="Campus Gallery" 
                   className="w-full h-full object-cover"
                 />
-                {/* Text inside image at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/95 p-3">
-                  <p className="text-sm font-semibold text-gray-800 text-center">
-                    Campus Life & Memories
-                  </p>
-                  <p className="text-xs text-gray-600 text-center">
-                    Capturing moments of excellence and achievement
-                  </p>
-                </div>
               </div>
             </div>
           </div>
