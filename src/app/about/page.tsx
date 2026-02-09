@@ -64,49 +64,46 @@ export default function About() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-cyan-50">
       {/* Hero Section - Same as Home Page */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-cyan-50 to-indigo-50 min-h-[85vh] flex items-center overflow-hidden py-16">
-        {/* Light Animated Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(6,182,212,0.1),transparent_50%)]"></div>
-          <div className="absolute top-20 left-20 w-64 h-64 bg-blue-200/30 rounded-full blur-3xl animate-pulse transform-gpu"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-200/30 rounded-full blur-3xl animate-pulse delay-1000 transform-gpu"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-indigo-200/20 rounded-full blur-3xl animate-pulse delay-500 transform-gpu"></div>
+      <section className="relative bg-gradient-to-b from-blue-50 to-white py-16 overflow-hidden">
+        {/* Simple Background Pattern */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-100 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-            {/* Left Content - Takes 3 columns */}
-            <div className="lg:col-span-3 text-gray-900 text-center lg:text-left">
-              <div className="inline-flex items-center bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 mb-6 border border-blue-200 shadow-lg">
-                <span className="text-sm font-medium text-blue-900">🎓 Transforming Education Since 2024</span>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+            {/* Left Content - 3 columns */}
+            <div className="lg:col-span-3 text-center lg:text-left">
+              <div className="inline-flex items-center bg-blue-100 rounded-full px-4 py-2 mb-4">
+                <span className="text-sm font-medium text-blue-700">🎓 Transforming Education Since 2024</span>
               </div>
               
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                 <span className="text-gray-900">About</span>
-                <span className="block text-transparent bg-gradient-to-r from-blue-600 via-cyan-600 to-indigo-600 bg-clip-text">
+                <span className="block text-blue-600">
                   EDBELL EDUSOLUTIONS
                 </span>
               </h1>
-              <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
                 Your trusted partner in quality education, empowering students with UGC-approved programs and comprehensive support services.
               </p>
             </div>
 
-            {/* Right Column - Image (Takes 2 columns) */}
-            <div className="lg:col-span-2 relative mt-8 lg:mt-0">
-              <div className="w-full h-80 sm:h-96 lg:h-[500px] rounded-2xl relative overflow-hidden shadow-xl">
+            {/* Right Column - Image (2 columns) */}
+            <div className="lg:col-span-2 relative">
+              <div className="w-full h-80 sm:h-96 rounded-xl relative overflow-hidden shadow-lg">
                 <img 
                   src="/about-professional.jpg" 
                   alt="EDBELL Education" 
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover"
                 />
                 {/* Text inside image at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm p-4 border-t border-gray-200">
-                  <p className="text-sm sm:text-base font-semibold text-gray-800 text-center">
+                <div className="absolute bottom-0 left-0 right-0 bg-white/95 p-3">
+                  <p className="text-sm font-semibold text-gray-800 text-center">
                     ADV. ARIF WAFY VARAMBATTA
                   </p>
-                  <p className="text-xs sm:text-sm text-gray-600 text-center">
+                  <p className="text-xs text-gray-600 text-center">
                     (MANAGING DIRECTOR EDBELL EDUSOLUTIONS LLP)
                   </p>
                 </div>
@@ -117,42 +114,31 @@ export default function About() {
       </section>
 
       {/* Stats Section - Same as Home Page */}
-      <section className="py-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 border-b border-blue-500/20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.1),transparent_50%)]"></div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center items-stretch">
-            <div className="flex flex-col items-center group cursor-pointer transform hover:scale-110 hover:-translate-y-2 transition-all duration-300">
-              <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-2 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
-                <Shield className="h-5 w-5 text-white group-hover:animate-pulse" />
-              </div>
-              <div className="text-lg font-bold text-white group-hover:text-cyan-200 transition-colors duration-300">UGC Approved</div>
-              <div className="text-xs text-blue-200 group-hover:text-white transition-colors duration-300">Recognized Programs</div>
+      <section className="py-8 bg-blue-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            <div className="flex flex-col items-center">
+              <Shield className="h-8 w-8 text-white mb-2" />
+              <div className="text-xl font-bold text-white">UGC Approved</div>
+              <div className="text-sm text-blue-100">Quality Education</div>
             </div>
             
-            <div className="flex flex-col items-center group cursor-pointer transform hover:scale-110 hover:-translate-y-2 transition-all duration-300">
-              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
-                <Users className="h-8 w-8 text-white group-hover:animate-bounce" />
-              </div>
-              <div className="text-2xl font-bold text-white group-hover:text-cyan-200 transition-colors duration-300">25,000+</div>
-              <div className="text-blue-200 group-hover:text-white transition-colors duration-300">Happy Students</div>
+            <div className="flex flex-col items-center">
+              <Users className="h-8 w-8 text-white mb-2" />
+              <div className="text-2xl font-bold text-white">25,000+</div>
+              <div className="text-sm text-blue-100">Happy Students</div>
             </div>
             
-            <div className="flex flex-col items-center group cursor-pointer transform hover:scale-110 hover:-translate-y-2 transition-all duration-300">
-              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
-                <Globe className="h-8 w-8 text-white group-hover:animate-spin" />
-              </div>
-              <div className="text-2xl font-bold text-white group-hover:text-cyan-200 transition-colors duration-300">50+</div>
-              <div className="text-blue-200 group-hover:text-white transition-colors duration-300">University Partners</div>
+            <div className="flex flex-col items-center">
+              <Globe className="h-8 w-8 text-white mb-2" />
+              <div className="text-2xl font-bold text-white">50+</div>
+              <div className="text-sm text-blue-100">University Partners</div>
             </div>
             
-            <div className="flex flex-col items-center group cursor-pointer transform hover:scale-110 hover:-translate-y-2 transition-all duration-300">
-              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
-                <Award className="h-8 w-8 text-white group-hover:animate-pulse" />
-              </div>
-              <div className="text-2xl font-bold text-white group-hover:text-cyan-200 transition-colors duration-300">95%</div>
-              <div className="text-blue-200 group-hover:text-white transition-colors duration-300">Success Rate</div>
+            <div className="flex flex-col items-center">
+              <Award className="h-8 w-8 text-white mb-2" />
+              <div className="text-2xl font-bold text-white">95%</div>
+              <div className="text-sm text-blue-100">Success Rate</div>
             </div>
           </div>
         </div>
