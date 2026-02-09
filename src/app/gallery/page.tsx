@@ -129,25 +129,50 @@ export default function Gallery() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-800 via-blue-900 to-blue-700 min-h-[600px] lg:min-h-[700px]">
-        {/* 3D Animated Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500/30 rounded-full blur-3xl animate-pulse transform-gpu"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-400/25 rounded-full blur-3xl animate-pulse delay-1000 transform-gpu"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl animate-pulse delay-500 transform-gpu"></div>
+      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white py-24 min-h-[600px] lg:min-h-[700px]">
+        {/* Simple Background Pattern */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-100 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="relative mobile-container py-24 sm:py-28 lg:py-32 flex items-center justify-center min-h-[600px] lg:min-h-[700px]">
-          <div className="max-w-4xl mx-auto text-center fade-in">
-            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/30 backdrop-blur-sm rounded-2xl mb-6 sm:mb-8 mobile-touch-target transform hover:scale-110 hover:rotate-12 transition-all duration-300 shadow-xl border border-blue-400/30">
-              <Camera className="h-6 w-6 sm:h-8 sm:w-8 text-white animate-bounce" />
+        <div className="relative mobile-container h-full flex items-center min-h-[500px] lg:min-h-[600px]">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center w-full max-w-7xl mx-auto">
+            {/* Left Content - 3 columns */}
+            <div className="lg:col-span-3 text-center lg:text-left fade-in">
+              <div className="inline-flex items-center bg-blue-100 rounded-full px-4 py-2 mb-4">
+                <Camera className="h-4 w-4 text-blue-700 mr-2" />
+                <span className="text-sm font-medium text-blue-700">Campus Life & Events</span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+                Photo Gallery
+              </h1>
+              <p className="text-lg sm:text-xl text-gray-600 max-w-2xl">
+                Explore moments from our vibrant campus life, memorable events, achievements, 
+                and the journey of our students towards academic excellence.
+              </p>
             </div>
-            <h1 className="mobile-hero-text text-white mb-4 sm:mb-6 text-balance transform hover:scale-105 transition-transform duration-300">
-              Photo Gallery
-            </h1>
-            <p className="mobile-body-large text-blue-100 max-w-3xl mx-auto mb-6 sm:mb-8">
-              Explore moments from our vibrant campus life, memorable events, achievements, 
-              and the journey of our students towards academic excellence.
+            
+            {/* Right Content - Campus Image - 2 columns */}
+            <div className="lg:col-span-2 relative">
+              <div className="w-full h-96 sm:h-[450px] lg:h-[500px] rounded-xl relative overflow-hidden shadow-lg">
+                <img 
+                  src="/about-campus.jpg" 
+                  alt="Campus Gallery" 
+                  className="w-full h-full object-cover"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent flex items-end">
+                  <div className="p-6 text-white w-full">
+                    <h3 className="text-2xl font-bold mb-2">Campus Moments</h3>
+                    <p className="text-blue-100">Capturing memories & achievements</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
             </p>
             <div className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 max-w-xs sm:max-w-md mx-auto">
               <div className="bg-blue-500/20 backdrop-blur-lg text-center p-3 sm:p-4 rounded-xl border border-blue-400/30 hover:bg-blue-500/30 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl">

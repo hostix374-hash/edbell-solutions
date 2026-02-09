@@ -245,19 +245,43 @@ export default function Services() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-800 via-blue-900 to-blue-700 text-white py-24 px-4 sm:px-6 lg:px-8 min-h-[600px] lg:min-h-[700px]">
-        {/* 3D Animated Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500/30 rounded-full blur-3xl animate-pulse transform-gpu"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-400/25 rounded-full blur-3xl animate-pulse delay-1000 transform-gpu"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl animate-pulse delay-500 transform-gpu"></div>
+      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white py-24 min-h-[600px] lg:min-h-[700px]">
+        {/* Simple Background Pattern */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-100 rounded-full blur-3xl"></div>
         </div>
-        <div className="relative max-w-7xl mx-auto text-center flex items-center justify-center min-h-[500px] lg:min-h-[600px]">
-          <div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 transform hover:scale-105 transition-transform duration-300">Our Services</h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto">
-              Educational and career services for your success.
-            </p>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center min-h-[500px] lg:min-h-[600px]">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center w-full">
+            {/* Left Content - 3 columns */}
+            <div className="lg:col-span-3 text-center lg:text-left">
+              <div className="inline-flex items-center bg-blue-100 rounded-full px-4 py-2 mb-4">
+                <span className="text-sm font-medium text-blue-700">🎓 Comprehensive Educational Services</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">Our Services</h1>
+              <p className="text-xl md:text-2xl text-gray-600 max-w-3xl">
+                Educational and career services for your success.
+              </p>
+            </div>
+            
+            {/* Right Content - Education Image - 2 columns */}
+            <div className="lg:col-span-2 relative">
+              <div className="w-full h-96 sm:h-[450px] lg:h-[500px] rounded-xl relative overflow-hidden shadow-lg">
+                <img 
+                  src="/about-team.jpg" 
+                  alt="Educational Services" 
+                  className="w-full h-full object-cover"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent flex items-end">
+                  <div className="p-6 text-white w-full">
+                    <h3 className="text-2xl font-bold mb-2">Expert Guidance</h3>
+                    <p className="text-blue-100">Professional educational services</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
