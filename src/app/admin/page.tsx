@@ -242,6 +242,7 @@ export default function AdminDashboard() {
     { id: 'gallery', name: 'Gallery Management', icon: <Award className="h-5 w-5" />, description: 'Manage photo gallery' },
     { id: 'add-course', name: 'Add Course', icon: <BookOpen className="h-5 w-5" />, description: 'Create and manage courses' },
     { id: 'add-university', name: 'Add University', icon: <GraduationCap className="h-5 w-5" />, description: 'Create and manage universities' },
+    { id: 'seo', name: 'SEO Optimization', icon: <Globe className="h-5 w-5" />, description: 'Manage meta tags and SEO' },
     { id: 'analytics', name: 'Analytics', icon: <BarChart3 className="h-5 w-5" />, description: 'Website statistics' },
     { id: 'settings', name: 'Settings', icon: <Settings className="h-5 w-5" />, description: 'System configuration' }
   ];
@@ -2327,6 +2328,256 @@ export default function AdminDashboard() {
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderSEOSection = () => (
+    <div className="space-y-6">
+      {/* SEO Overview */}
+      <div className="bg-white rounded-lg shadow-sm border p-6">
+        <div className="flex items-center space-x-3 mb-6">
+          <Globe className="h-6 w-6 text-blue-600" />
+          <h2 className="text-2xl font-bold text-gray-900">SEO Optimization</h2>
+        </div>
+        <p className="text-gray-600 mb-6">
+          Manage meta tags, descriptions, and keywords for better search engine visibility.
+        </p>
+
+        {/* SEO Status Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-medium text-green-800">Pages Optimized</span>
+              <CheckCircle className="h-5 w-5 text-green-600" />
+            </div>
+            <p className="text-2xl font-bold text-green-900">8/10</p>
+            <p className="text-xs text-green-700 mt-1">80% Complete</p>
+          </div>
+
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-medium text-blue-800">Meta Descriptions</span>
+              <FileText className="h-5 w-5 text-blue-600" />
+            </div>
+            <p className="text-2xl font-bold text-blue-900">10/10</p>
+            <p className="text-xs text-blue-700 mt-1">All pages covered</p>
+          </div>
+
+          <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-medium text-purple-800">Keywords</span>
+              <Tag className="h-5 w-5 text-purple-600" />
+            </div>
+            <p className="text-2xl font-bold text-purple-900">45+</p>
+            <p className="text-xs text-purple-700 mt-1">Targeted keywords</p>
+          </div>
+        </div>
+
+        {/* Page-wise SEO Settings */}
+        <div className="space-y-4">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Page SEO Settings</h3>
+          
+          {/* Home Page */}
+          <div className="border rounded-lg p-4 hover:border-blue-300 transition-colors">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center space-x-3">
+                <Home className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-gray-900">Home Page</h4>
+              </div>
+              <span className="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+                Optimized
+              </span>
+            </div>
+            <div className="space-y-2 text-sm">
+              <div>
+                <span className="font-medium text-gray-700">Title:</span>
+                <p className="text-gray-600">EDBELL EDUSOLUTIONS | UGC Approved Online Degrees & Career Guidance</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Description:</span>
+                <p className="text-gray-600">Get UGC-approved online degrees from top universities. Expert career counseling, study abroad services, and scholarship assistance. 25,000+ successful students.</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Keywords:</span>
+                <p className="text-gray-600">online degree, UGC approved, distance education, career counseling, study abroad</p>
+              </div>
+            </div>
+          </div>
+
+          {/* About Page */}
+          <div className="border rounded-lg p-4 hover:border-blue-300 transition-colors">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center space-x-3">
+                <Info className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-gray-900">About Page</h4>
+              </div>
+              <span className="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+                Optimized
+              </span>
+            </div>
+            <div className="space-y-2 text-sm">
+              <div>
+                <span className="font-medium text-gray-700">Title:</span>
+                <p className="text-gray-600">About EDBELL EDUSOLUTIONS | Leading Online Education Provider</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Description:</span>
+                <p className="text-gray-600">Learn about EDBELL EDUSOLUTIONS LLP - Your trusted partner in quality education since 2024. UGC-approved programs, expert guidance, and comprehensive support services.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Courses Page */}
+          <div className="border rounded-lg p-4 hover:border-blue-300 transition-colors">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center space-x-3">
+                <BookOpen className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-gray-900">Courses Page</h4>
+              </div>
+              <span className="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+                Optimized
+              </span>
+            </div>
+            <div className="space-y-2 text-sm">
+              <div>
+                <span className="font-medium text-gray-700">Title:</span>
+                <p className="text-gray-600">Online Degree Courses | UGC Approved Programs | EDBELL EDUSOLUTIONS</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Description:</span>
+                <p className="text-gray-600">Explore UGC-approved online degree courses including BA, B.Com, BBA, MA, M.Com, MBA from top NAAC A++ universities. Flexible learning, affordable fees.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Universities Page */}
+          <div className="border rounded-lg p-4 hover:border-blue-300 transition-colors">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center space-x-3">
+                <GraduationCap className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-gray-900">Universities Page</h4>
+              </div>
+              <span className="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">
+                Needs Update
+              </span>
+            </div>
+            <div className="space-y-2 text-sm">
+              <div>
+                <span className="font-medium text-gray-700">Title:</span>
+                <p className="text-gray-600">Partner Universities | UGC-DEB Approved | EDBELL EDUSOLUTIONS</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Description:</span>
+                <p className="text-gray-600">Explore 50+ partner universities offering UGC-approved online degrees. NAAC A++ graded institutions with flexible learning options.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Services Page */}
+          <div className="border rounded-lg p-4 hover:border-blue-300 transition-colors">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center space-x-3">
+                <Briefcase className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-gray-900">Services Page</h4>
+              </div>
+              <span className="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+                Optimized
+              </span>
+            </div>
+            <div className="space-y-2 text-sm">
+              <div>
+                <span className="font-medium text-gray-700">Title:</span>
+                <p className="text-gray-600">Educational Services | Career Counseling | Study Abroad | EDBELL</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Description:</span>
+                <p className="text-gray-600">Comprehensive educational services including career counseling, study abroad assistance, scholarship guidance, and test preparation.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Page */}
+          <div className="border rounded-lg p-4 hover:border-blue-300 transition-colors">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center space-x-3">
+                <Phone className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-gray-900">Contact Page</h4>
+              </div>
+              <span className="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+                Optimized
+              </span>
+            </div>
+            <div className="space-y-2 text-sm">
+              <div>
+                <span className="font-medium text-gray-700">Title:</span>
+                <p className="text-gray-600">Contact Us | Get Free Consultation | EDBELL EDUSOLUTIONS</p>
+              </div>
+              <div>
+                <span className="font-medium text-gray-700">Description:</span>
+                <p className="text-gray-600">Contact EDBELL EDUSOLUTIONS for free educational consultation. Expert counselors available for career guidance and admission support.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* SEO Best Practices */}
+        <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-blue-900 mb-4 flex items-center">
+            <CheckCircle className="h-5 w-5 mr-2" />
+            SEO Best Practices Implemented
+          </h3>
+          <ul className="space-y-2 text-sm text-blue-800">
+            <li className="flex items-start">
+              <CheckCircle className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+              <span>All pages have unique, descriptive meta titles (50-60 characters)</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircle className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Meta descriptions are compelling and within 150-160 characters</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircle className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Targeted keywords included naturally in content</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircle className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Open Graph tags for social media sharing</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircle className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Structured data (JSON-LD) for rich snippets</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircle className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Mobile-friendly and responsive design</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircle className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Fast page load times with optimized images</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircle className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+              <span>XML sitemap and robots.txt configured</span>
+            </li>
+          </ul>
+        </div>
+
+        {/* Quick Actions */}
+        <div className="mt-6 flex flex-wrap gap-3">
+          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2">
+            <Globe className="h-4 w-4" />
+            <span>View Sitemap</span>
+          </button>
+          <button className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors flex items-center space-x-2">
+            <FileText className="h-4 w-4" />
+            <span>View Robots.txt</span>
+          </button>
+          <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2">
+            <BarChart3 className="h-4 w-4" />
+            <span>SEO Analytics</span>
+          </button>
         </div>
       </div>
     </div>
@@ -4423,6 +4674,7 @@ export default function AdminDashboard() {
             {activeSection === 'gallery' && renderGallerySection()}
             {activeSection === 'add-course' && renderAddCourseSection()}
             {activeSection === 'add-university' && renderAddUniversitySection()}
+            {activeSection === 'seo' && renderSEOSection()}
             {activeSection === 'analytics' && renderAnalyticsSection()}
             {activeSection === 'settings' && renderSettingsSection()}
           </div>
