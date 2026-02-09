@@ -68,7 +68,7 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 mobile-safe-area ${
+    <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
       isScrolled 
         ? 'bg-white backdrop-blur-md border-b border-gray-200 shadow-lg' 
         : 'bg-white backdrop-blur-md border-b border-gray-100 shadow-md'
@@ -165,9 +165,15 @@ const Header = () => {
 
             {/* Mobile menu button */}
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-all duration-200 mobile-touch-target"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Menu button clicked, current state:', isMenuOpen);
+                setIsMenuOpen(!isMenuOpen);
+              }}
+              className="lg:hidden p-3 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-all duration-200 z-50 relative active:scale-95"
               aria-label="Toggle menu"
+              type="button"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -179,12 +185,12 @@ const Header = () => {
           <>
             {/* Backdrop */}
             <div 
-              className="lg:hidden fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
+              className="lg:hidden fixed inset-0 bg-black/50 z-[110] transition-opacity duration-300"
               onClick={() => setIsMenuOpen(false)}
             />
             
             {/* Mobile Menu Panel */}
-            <div className="lg:hidden fixed top-0 right-0 bottom-0 w-[280px] max-w-[85vw] bg-white shadow-2xl z-50 overflow-hidden">
+            <div className="lg:hidden fixed top-0 right-0 bottom-0 w-[280px] max-w-[85vw] bg-white shadow-2xl z-[120] overflow-hidden">
               <div className="flex flex-col h-full">
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-100 flex-shrink-0">
