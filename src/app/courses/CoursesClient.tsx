@@ -82,7 +82,7 @@ export default function CoursesClient() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section with Magazine Style */}
-      <section className="relative min-h-[70vh] bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 overflow-hidden">
+      <section className="relative min-h-[600px] lg:min-h-[700px] bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 overflow-hidden">
         {/* 3D Animated Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-cyan-600/5 to-indigo-600/10"></div>
@@ -93,7 +93,7 @@ export default function CoursesClient() {
           </div>
         </div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex items-center min-h-[70vh]">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex items-center min-h-[600px] lg:min-h-[700px]">
           <div className="max-w-4xl">
             <div className="flex items-center space-x-4 mb-8">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center transform hover:scale-110 hover:rotate-12 transition-all duration-300 shadow-xl">

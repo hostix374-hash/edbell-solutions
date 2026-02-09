@@ -64,15 +64,15 @@ export default function About() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-cyan-50">
       {/* Hero Section - Same as Home Page */}
-      <section className="relative bg-gradient-to-b from-blue-50 to-white py-16 overflow-hidden">
+      <section className="relative bg-gradient-to-b from-blue-50 to-white py-24 overflow-hidden min-h-[600px] lg:min-h-[700px]">
         {/* Simple Background Pattern */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-100 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center w-full">
             {/* Left Content - 3 columns */}
             <div className="lg:col-span-3 text-center lg:text-left">
               <div className="inline-flex items-center bg-blue-100 rounded-full px-4 py-2 mb-4">
@@ -92,7 +92,7 @@ export default function About() {
 
             {/* Right Column - Image (2 columns) */}
             <div className="lg:col-span-2 relative">
-              <div className="w-full h-80 sm:h-96 rounded-xl relative overflow-hidden shadow-lg">
+              <div className="w-full h-96 sm:h-[450px] lg:h-[500px] rounded-xl relative overflow-hidden shadow-lg">
                 <img 
                   src="/about-professional.jpg" 
                   alt="EDBELL Education" 

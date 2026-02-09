@@ -129,7 +129,7 @@ export default function Gallery() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-800 via-blue-900 to-blue-700">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-800 via-blue-900 to-blue-700 min-h-[600px] lg:min-h-[700px]">
         {/* 3D Animated Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500/30 rounded-full blur-3xl animate-pulse transform-gpu"></div>
@@ -137,7 +137,7 @@ export default function Gallery() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl animate-pulse delay-500 transform-gpu"></div>
         </div>
         
-        <div className="relative mobile-container mobile-section-padding">
+        <div className="relative mobile-container py-24 sm:py-28 lg:py-32 flex items-center justify-center min-h-[600px] lg:min-h-[700px]">
           <div className="max-w-4xl mx-auto text-center fade-in">
             <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/30 backdrop-blur-sm rounded-2xl mb-6 sm:mb-8 mobile-touch-target transform hover:scale-110 hover:rotate-12 transition-all duration-300 shadow-xl border border-blue-400/30">
               <Camera className="h-6 w-6 sm:h-8 sm:w-8 text-white animate-bounce" />
