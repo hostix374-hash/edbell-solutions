@@ -6,6 +6,7 @@ import Newsletter from '@/components/Newsletter';
 import { BookOpen, Clock, Users, Award, CheckCircle, Filter, Download, Phone, ExternalLink, GraduationCap, ArrowRight } from 'lucide-react';
 
 interface Course {
+  _id?: string;
   id: string;
   name: string;
   url: string;
