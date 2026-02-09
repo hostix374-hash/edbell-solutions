@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Analytics from '@/components/Analytics';
+import PageTransition from '@/components/PageTransition';
 
 export default function ConditionalLayout({
   children,
@@ -15,9 +16,11 @@ export default function ConditionalLayout({
 
   if (isAdminRoute) {
     return (
-      <main className="h-screen">
-        {children}
-      </main>
+      <PageTransition>
+        <main className="h-screen">
+          {children}
+        </main>
+      </PageTransition>
     );
   }
 
@@ -25,9 +28,11 @@ export default function ConditionalLayout({
     <>
       <Analytics />
       <Header />
-      <main className="min-h-screen pt-16 lg:pt-20">
-        {children}
-      </main>
+      <PageTransition>
+        <main className="min-h-screen pt-16 lg:pt-20">
+          {children}
+        </main>
+      </PageTransition>
       <Footer />
     </>
   );

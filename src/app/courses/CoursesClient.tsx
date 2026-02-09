@@ -93,9 +93,9 @@ export default function CoursesClient() {
           </div>
         </div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex items-center min-h-[600px] lg:min-h-[700px]">
-          <div className="max-w-4xl">
-            <div className="flex items-center space-x-4 mb-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex items-center justify-center min-h-[600px] lg:min-h-[700px]">
+          <div className="max-w-4xl text-center">
+            <div className="flex items-center justify-center space-x-4 mb-8">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center transform hover:scale-110 hover:rotate-12 transition-all duration-300 shadow-xl">
                 <GraduationCap className="h-6 w-6 text-white animate-bounce" />
               </div>
@@ -109,11 +109,11 @@ export default function CoursesClient() {
               </span>
             </h1>
             
-            <p className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-2xl leading-relaxed">
+            <p className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
               Find the program that matches your ambitions.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => setSelectedCategory('all')}
                 className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 shadow-lg hover:shadow-2xl overflow-hidden"

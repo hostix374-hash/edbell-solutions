@@ -2364,8 +2364,8 @@ export default function AdminDashboard() {
               <span className="text-sm font-medium text-green-800">Pages Optimized</span>
               <CheckCircle className="h-5 w-5 text-green-600" />
             </div>
-            <p className="text-2xl font-bold text-green-900">8/10</p>
-            <p className="text-xs text-green-700 mt-1">80% Complete</p>
+            <p className="text-2xl font-bold text-green-900">10/10</p>
+            <p className="text-xs text-green-700 mt-1">100% Complete</p>
           </div>
 
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
@@ -2471,8 +2471,8 @@ export default function AdminDashboard() {
                 <GraduationCap className="h-5 w-5 text-blue-600" />
                 <h4 className="font-semibold text-gray-900">Universities Page</h4>
               </div>
-              <span className="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">
-                Needs Update
+              <span className="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+                Optimized
               </span>
             </div>
             <div className="space-y-2 text-sm">
@@ -2578,15 +2578,28 @@ export default function AdminDashboard() {
 
         {/* Quick Actions */}
         <div className="mt-6 flex flex-wrap gap-3">
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2">
+          <a 
+            href="/sitemap.xml" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
+          >
             <Globe className="h-4 w-4" />
             <span>View Sitemap</span>
-          </button>
-          <button className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors flex items-center space-x-2">
+          </a>
+          <a 
+            href="/robots.txt" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors flex items-center space-x-2"
+          >
             <FileText className="h-4 w-4" />
             <span>View Robots.txt</span>
-          </button>
-          <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2">
+          </a>
+          <button 
+            onClick={() => setActiveSection('analytics')}
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2"
+          >
             <BarChart3 className="h-4 w-4" />
             <span>SEO Analytics</span>
           </button>
@@ -4897,16 +4910,6 @@ export default function AdminDashboard() {
             ))}
           </nav>
 
-          {/* Logout Button */}
-          <div className="p-4 border-t border-gray-200">
-            <button
-              onClick={handleLogout}
-              className="w-full flex items-center justify-center space-x-2 bg-red-600 hover:bg-red-700 text-white px-4 py-3 rounded-lg transition-colors duration-200 font-medium"
-            >
-              <LogOut className="h-4 w-4" />
-              <span>Logout</span>
-            </button>
-          </div>
         </div>
 
         {/* Main Content Area - Add left margin to account for fixed sidebar */}
@@ -4938,6 +4941,14 @@ export default function AdminDashboard() {
                   <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                   </div>
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                    title="Logout"
+                  >
+                    <LogOut className="h-5 w-5" />
+                    <span className="hidden md:inline font-medium">Logout</span>
+                  </button>
                 </div>
               </div>
             </div>

@@ -60,7 +60,7 @@ const Header = () => {
         ? 'bg-white backdrop-blur-md border-b border-gray-200 shadow-lg' 
         : 'bg-white backdrop-blur-md border-b border-gray-100 shadow-md'
     }`}>
-      <div className="mobile-container">
+      <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-16 max-w-[1600px] mx-auto">
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group">
@@ -77,12 +77,12 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
             {navigation.map((item) => (
               <div key={item.name} className="relative group">
                 <Link
                   href={item.href}
-                  className="relative px-3 xl:px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 rounded-lg transition-all duration-200 mobile-touch-target block"
+                  className="relative px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-gray-700 hover:text-blue-600 rounded-lg transition-all duration-200 mobile-touch-target block"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-8 group-hover:left-1/2 transform -translate-x-1/2"></span>

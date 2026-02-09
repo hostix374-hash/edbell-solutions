@@ -195,13 +195,16 @@ export default function Home() {
                   alt="EDBELL Professional" 
                   className="w-full h-full object-cover"
                 />
+                {/* Overlay with gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                
                 {/* Text inside image at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/95 p-3">
-                  <p className="text-sm font-semibold text-gray-800 text-center">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                  <p className="text-base font-bold text-white text-center">
                     ADV. ARIF WAFY VARAMBATTA
                   </p>
-                  <p className="text-xs text-gray-600 text-center">
-                    (MANAGING DIRECTOR EDBELL EDUSOLUTIONS LLP)
+                  <p className="text-sm text-blue-200 text-center">
+                    Managing Director, EDBELL EDUSOLUTIONS LLP
                   </p>
                 </div>
               </div>
@@ -267,77 +270,105 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Courses Section - Simple */}
-      <section className="py-12 bg-gray-50">
+      {/* Courses Section - Animated */}
+      <section className="py-12 bg-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+          {/* Animated Header */}
+          <div className="text-center mb-8 animate-fade-in-up">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 animate-slide-in-left">
               Courses & Education Pathways
             </h2>
-            <p className="text-base text-gray-600">
+            <p className="text-base text-gray-600 animate-slide-in-right animation-delay-200">
               UGC-approved programs for your success
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-indigo-600 rounded-lg p-6 text-white shadow-md hover:shadow-lg transition-shadow duration-300">
-              <GraduationCap className="h-12 w-12 mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2 text-center">Higher Secondary</h3>
+            {/* Card 1 - Higher Secondary */}
+            <div className="bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-lg p-6 text-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 animate-fade-in-up animation-delay-300 group">
+              <div className="relative">
+                <GraduationCap className="h-12 w-12 mx-auto mb-4 transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500" />
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full animate-ping opacity-75"></div>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-center transform group-hover:scale-105 transition-transform duration-300">
+                Higher Secondary
+              </h3>
               <p className="text-sm text-indigo-100 mb-4 text-center">Foundation programs</p>
               <div className="space-y-2">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-300" />
+                <div className="flex items-center space-x-2 transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 animation-delay-100">
+                  <CheckCircle className="h-4 w-4 text-green-300 animate-bounce-slow" />
                   <span className="text-sm">Science Stream</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-300" />
+                <div className="flex items-center space-x-2 transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 animation-delay-200">
+                  <CheckCircle className="h-4 w-4 text-green-300 animate-bounce-slow animation-delay-100" />
                   <span className="text-sm">Commerce Stream</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-300" />
+                <div className="flex items-center space-x-2 transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 animation-delay-300">
+                  <CheckCircle className="h-4 w-4 text-green-300 animate-bounce-slow animation-delay-200" />
                   <span className="text-sm">Arts Stream</span>
                 </div>
               </div>
+              {/* Animated Background Circles */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-white opacity-5 rounded-full transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 bg-white opacity-5 rounded-full transform -translate-x-8 translate-y-8 group-hover:scale-150 transition-transform duration-700"></div>
             </div>
 
-            <div className="bg-blue-600 rounded-lg p-6 text-white shadow-md hover:shadow-lg transition-shadow duration-300">
-              <BookOpen className="h-12 w-12 mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2 text-center">Degree & PG Programs</h3>
+            {/* Card 2 - Degree & PG Programs */}
+            <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg p-6 text-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 animate-fade-in-up animation-delay-500 group">
+              <div className="relative">
+                <BookOpen className="h-12 w-12 mx-auto mb-4 transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500" />
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-400 rounded-full animate-ping opacity-75 animation-delay-200"></div>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-center transform group-hover:scale-105 transition-transform duration-300">
+                Degree & PG Programs
+              </h3>
               <p className="text-sm text-blue-100 mb-4 text-center">UG and PG degrees</p>
               <div className="space-y-2">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-300" />
+                <div className="flex items-center space-x-2 transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 animation-delay-100">
+                  <CheckCircle className="h-4 w-4 text-green-300 animate-bounce-slow animation-delay-300" />
                   <span className="text-sm">BA, B.Com, B.Sc</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-300" />
+                <div className="flex items-center space-x-2 transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 animation-delay-200">
+                  <CheckCircle className="h-4 w-4 text-green-300 animate-bounce-slow animation-delay-400" />
                   <span className="text-sm">MA, M.Com, MBA</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-300" />
+                <div className="flex items-center space-x-2 transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 animation-delay-300">
+                  <CheckCircle className="h-4 w-4 text-green-300 animate-bounce-slow animation-delay-500" />
                   <span className="text-sm">Professional Courses</span>
                 </div>
               </div>
+              {/* Animated Background Circles */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-white opacity-5 rounded-full transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 bg-white opacity-5 rounded-full transform -translate-x-8 translate-y-8 group-hover:scale-150 transition-transform duration-700"></div>
             </div>
 
-            <div className="bg-teal-600 rounded-lg p-6 text-white shadow-md hover:shadow-lg transition-shadow duration-300">
-              <Award className="h-12 w-12 mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2 text-center">Skill & Counseling</h3>
+            {/* Card 3 - Skill & Counseling */}
+            <div className="bg-gradient-to-br from-teal-600 to-teal-700 rounded-lg p-6 text-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 animate-fade-in-up animation-delay-700 group">
+              <div className="relative">
+                <Award className="h-12 w-12 mx-auto mb-4 transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500" />
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-orange-400 rounded-full animate-ping opacity-75 animation-delay-400"></div>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-center transform group-hover:scale-105 transition-transform duration-300">
+                Skill & Counseling
+              </h3>
               <p className="text-sm text-teal-100 mb-4 text-center">Career guidance & skills</p>
               <div className="space-y-2">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-300" />
+                <div className="flex items-center space-x-2 transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 animation-delay-100">
+                  <CheckCircle className="h-4 w-4 text-green-300 animate-bounce-slow animation-delay-600" />
                   <span className="text-sm">Career Counseling</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-300" />
+                <div className="flex items-center space-x-2 transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 animation-delay-200">
+                  <CheckCircle className="h-4 w-4 text-green-300 animate-bounce-slow animation-delay-700" />
                   <span className="text-sm">Skill Development</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-300" />
+                <div className="flex items-center space-x-2 transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 animation-delay-300">
+                  <CheckCircle className="h-4 w-4 text-green-300 animate-bounce-slow animation-delay-800" />
                   <span className="text-sm">Test Preparation</span>
                 </div>
               </div>
+              {/* Animated Background Circles */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-white opacity-5 rounded-full transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 bg-white opacity-5 rounded-full transform -translate-x-8 translate-y-8 group-hover:scale-150 transition-transform duration-700"></div>
             </div>
           </div>
         </div>

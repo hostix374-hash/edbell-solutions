@@ -129,33 +129,69 @@ export default function Gallery() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white py-24 min-h-[600px] lg:min-h-[700px]">
+      <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 py-24 overflow-hidden min-h-[600px] lg:min-h-[700px]">
         {/* Simple Background Pattern */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-100 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="relative mobile-container h-full flex items-center min-h-[500px] lg:min-h-[600px]">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center w-full max-w-7xl mx-auto">
+        <div className="relative w-full px-4 sm:px-6 lg:px-12 xl:px-16 h-full flex items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center max-w-[1600px] mx-auto w-full">
             {/* Left Content - 3 columns */}
             <div className="lg:col-span-3 text-center lg:text-left fade-in">
               <div className="inline-flex items-center bg-blue-100 rounded-full px-4 py-2 mb-4">
                 <Camera className="h-4 w-4 text-blue-700 mr-2" />
                 <span className="text-sm font-medium text-blue-700">Campus Life & Events</span>
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-gray-900">
                 Photo Gallery
               </h1>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-2xl">
-                Explore moments from our vibrant campus life, memorable events, achievements, 
-                and the journey of our students towards academic excellence.
+              <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
+                Explore the vibrant moments from our educational journey - capturing memorable events, 
+                campus life, student achievements, graduation ceremonies, and the inspiring stories 
+                of academic excellence and personal growth.
               </p>
+              
+              {/* Gallery Stats */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm text-center">
+                  <div className="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-lg mx-auto mb-2">
+                    <Calendar className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <p className="text-2xl font-bold text-gray-900">{galleryImages.length}+</p>
+                  <p className="text-xs text-gray-600">Photos</p>
+                </div>
+                
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm text-center">
+                  <div className="flex items-center justify-center w-10 h-10 bg-cyan-100 rounded-lg mx-auto mb-2">
+                    <Users className="h-5 w-5 text-cyan-600" />
+                  </div>
+                  <p className="text-2xl font-bold text-gray-900">50+</p>
+                  <p className="text-xs text-gray-600">Events</p>
+                </div>
+                
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm text-center">
+                  <div className="flex items-center justify-center w-10 h-10 bg-indigo-100 rounded-lg mx-auto mb-2">
+                    <GraduationCap className="h-5 w-5 text-indigo-600" />
+                  </div>
+                  <p className="text-2xl font-bold text-gray-900">100+</p>
+                  <p className="text-xs text-gray-600">Graduates</p>
+                </div>
+                
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm text-center">
+                  <div className="flex items-center justify-center w-10 h-10 bg-teal-100 rounded-lg mx-auto mb-2">
+                    <Award className="h-5 w-5 text-teal-600" />
+                  </div>
+                  <p className="text-2xl font-bold text-gray-900">25+</p>
+                  <p className="text-xs text-gray-600">Awards</p>
+                </div>
+              </div>
             </div>
             
             {/* Right Content - Campus Image - 2 columns */}
             <div className="lg:col-span-2 relative">
-              <div className="w-full h-96 sm:h-[450px] lg:h-[500px] rounded-xl relative overflow-hidden shadow-lg">
+              <div className="w-full h-72 sm:h-80 lg:h-96 rounded-xl relative overflow-hidden shadow-lg">
                 <img 
                   src="/about-campus.jpg" 
                   alt="Campus Gallery" 
@@ -168,11 +204,11 @@ export default function Gallery() {
       </section>
 
       {/* Filter Section */}
-      <section className="bg-white border-b border-gray-100">
+      <section className="bg-white border-b border-gray-100 sticky top-0 z-20 shadow-sm">
         <div className="mobile-container py-6 sm:py-8">
           <div className="flex flex-col gap-4 sm:gap-6">
             <div className="flex items-center justify-center sm:justify-start space-x-3">
-              <Camera className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600" />
+              <Camera className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
               <span className="mobile-heading-4 text-gray-900">Browse by Category:</span>
             </div>
             <div className="flex flex-wrap gap-2 sm:gap-3 justify-center sm:justify-start">
@@ -182,9 +218,9 @@ export default function Gallery() {
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`mobile-touch-target flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 py-2 sm:py-3 rounded-xl font-medium transition-all duration-200 text-xs sm:text-sm ${
+                    className={`mobile-touch-target flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 py-2 sm:py-3 rounded-xl font-medium transition-all duration-300 text-xs sm:text-sm transform hover:scale-105 ${
                       selectedCategory === category.id
-                        ? 'bg-blue-600 text-white shadow-lg'
+                        ? 'bg-blue-600 text-white shadow-lg scale-105'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
@@ -202,7 +238,7 @@ export default function Gallery() {
       {/* Gallery Grid */}
       <section className="section bg-gray-50">
         <div className="container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards]">
             <h2 className="heading-2 text-gray-900 mb-4">
               {selectedCategory === 'all' ? 'All Photos' : categories.find(c => c.id === selectedCategory)?.name}
             </h2>
@@ -212,23 +248,24 @@ export default function Gallery() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredImages.map((image) => (
+            {filteredImages.map((image, index) => (
               <div
                 key={image.id}
-                className="card card-hover cursor-pointer overflow-hidden group"
+                className="card card-hover cursor-pointer overflow-hidden group opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards] border border-gray-200 hover:border-blue-300"
+                style={{ animationDelay: `${index * 0.05}s` }}
                 onClick={() => openLightbox(image)}
               >
                 <div className="relative overflow-hidden bg-gray-100">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                     onError={(e) => {
                       e.currentTarget.src = '/api/placeholder/600/400';
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-                    <div className="glass rounded-full p-3 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 transform scale-75 group-hover:scale-100 transition-transform duration-300">
                       <Eye className="h-6 w-6 text-white" />
                     </div>
                   </div>
@@ -236,7 +273,7 @@ export default function Gallery() {
                 
                 <div className="card-body">
                   <div className="flex items-center justify-between mb-3">
-                    <span className={`badge ${
+                    <span className={`badge text-xs ${
                       image.category === 'events' ? 'bg-blue-100 text-blue-800' :
                       image.category === 'campus' ? 'bg-blue-100 text-blue-800' :
                       image.category === 'graduation' ? 'bg-cyan-100 text-cyan-800' :
@@ -248,7 +285,7 @@ export default function Gallery() {
                     <span className="body-small text-gray-500">{formatDate(image.date)}</span>
                   </div>
                   
-                  <h3 className="heading-4 text-gray-900 mb-2 line-clamp-2">
+                  <h3 className="heading-4 text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300">
                     {image.title}
                   </h3>
                   
@@ -278,7 +315,7 @@ export default function Gallery() {
               </p>
               <button
                 onClick={() => setSelectedCategory('all')}
-                className="btn btn-primary"
+                className="btn btn-primary transform hover:scale-105 transition-transform duration-300"
               >
                 View All Photos
               </button>
@@ -392,7 +429,7 @@ export default function Gallery() {
       {/* CTA Section */}
       <section className="section bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900">
         <div className="container text-center">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto opacity-0 animate-[fadeIn_0.8s_ease-out_forwards]">
             <h2 className="heading-2 text-white mb-6">
               Be Part of Our Story
             </h2>
@@ -401,11 +438,11 @@ export default function Gallery() {
               Start your educational journey with us today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 inline-flex items-center justify-center space-x-2 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105">
+              <Link href="/contact" className="bg-white text-blue-600 hover:bg-blue-50 font-semibold py-4 px-8 rounded-xl transition-all duration-300 inline-flex items-center justify-center space-x-2 shadow-lg transform hover:scale-105">
                 <Users className="h-5 w-5" />
                 <span>Join Our Community</span>
               </Link>
-              <Link href="/courses" className="bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 text-white font-semibold py-3 px-6 rounded-xl hover:bg-blue-500/30 hover:border-blue-400/50 transition-all duration-300 inline-flex items-center justify-center space-x-2 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105">
+              <Link href="/courses" className="bg-blue-600 hover:bg-blue-500 border-2 border-white text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 inline-flex items-center justify-center space-x-2 shadow-lg transform hover:scale-105">
                 <GraduationCap className="h-5 w-5" />
                 <span>Explore Courses</span>
               </Link>
