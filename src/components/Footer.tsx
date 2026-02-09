@@ -97,12 +97,29 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-3 mb-4">
+            <div className="mb-4">
+              {/* Logo Image Only */}
               <img 
                 src="/edbell-logo.png" 
                 alt="EdBell EduSolutions" 
-                className="h-12 sm:h-14 w-auto object-contain brightness-0 invert"
+                className="h-14 sm:h-16 w-auto object-contain brightness-0 invert"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
               />
+              {/* Fallback */}
+              <div className="hidden items-center space-x-3">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-900 to-blue-700 rounded-lg flex items-center justify-center mobile-touch-target">
+                  <span className="text-white font-bold text-lg sm:text-xl">E</span>
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">EdBell</h3>
+                  <p className="text-gray-400 text-sm">EDUSOLUTIONS LLP</p>
+                </div>
+              </div>
             </div>
             <p className="text-gray-300 mb-6 text-sm sm:text-base leading-relaxed">
               Empowering students with quality education and comprehensive support services. Your success is our mission.

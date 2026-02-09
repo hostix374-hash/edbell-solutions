@@ -63,13 +63,31 @@ const Header = () => {
       <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-16 max-w-[1600px] mx-auto">
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group">
-            <div className="relative">
-              <img 
-                src="/edbell-logo.png" 
-                alt="EdBell EduSolutions" 
-                className="h-10 lg:h-12 w-auto object-contain transition-all duration-200 group-hover:scale-105"
-              />
+          <Link href="/" className="flex items-center group">
+            {/* Logo Image Only */}
+            <img 
+              src="/edbell-logo.png" 
+              alt="EdBell EduSolutions" 
+              className="h-12 lg:h-16 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+              onError={(e) => {
+                // If image fails to load, replace with fallback
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const fallback = target.nextElementSibling as HTMLElement;
+                if (fallback) fallback.style.display = 'flex';
+              }}
+            />
+            {/* Fallback if logo doesn't load */}
+            <div className="h-12 lg:h-16 hidden items-center">
+              <div className="flex items-center space-x-2">
+                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-blue-900 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
+                  <span className="text-white font-bold text-lg lg:text-xl">E</span>
+                </div>
+                <div>
+                  <h1 className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">EdBell</h1>
+                  <p className="text-xs text-gray-500 -mt-1">Education Solutions</p>
+                </div>
+              </div>
             </div>
           </Link>
 
@@ -157,12 +175,26 @@ const Header = () => {
               <div className="flex flex-col h-full">
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-100">
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center">
+                    {/* Logo Image Only */}
                     <img 
                       src="/edbell-logo.png" 
                       alt="EdBell EduSolutions" 
-                      className="h-8 w-auto object-contain"
+                      className="h-10 w-auto object-contain"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const fallback = target.nextElementSibling as HTMLElement;
+                        if (fallback) fallback.style.display = 'flex';
+                      }}
                     />
+                    {/* Fallback */}
+                    <div className="hidden items-center space-x-2">
+                      <div className="w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg flex items-center justify-center">
+                        <span className="text-white font-bold text-sm">E</span>
+                      </div>
+                      <span className="font-bold bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">EdBell</span>
+                    </div>
                   </div>
                   <button
                     onClick={() => setIsMenuOpen(false)}

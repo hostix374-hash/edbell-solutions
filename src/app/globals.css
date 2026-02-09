@@ -6,10 +6,10 @@
 
 @layer base {
   :root {
-    --primary: #0f172a;
-    --primary-light: #1e293b;
-    --secondary: #3b82f6;
-    --accent: #06b6d4;
+    --primary: #001f3f;
+    --primary-light: #003d7a;
+    --secondary: #1e3a8a;
+    --accent: #0891b2;
     --success: #10b981;
     --warning: #f59e0b;
     --error: #ef4444;
@@ -360,7 +360,7 @@
   }
 
   .btn-primary {
-    @apply bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl focus:ring-blue-500 transform hover:-translate-y-0.5;
+    @apply bg-blue-900 hover:bg-blue-950 text-white shadow-lg hover:shadow-xl focus:ring-blue-900 transform hover:-translate-y-0.5;
   }
 
   .btn-secondary {
@@ -448,11 +448,11 @@
 
   /* Gradient backgrounds */
   .gradient-primary {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    background: linear-gradient(135deg, #001f3f 0%, #003d7a 50%, #1e3a8a 100%);
   }
 
   .gradient-secondary {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
   }
 
   .gradient-accent {
