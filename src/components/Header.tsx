@@ -187,18 +187,18 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <>
+          <div className="lg:hidden fixed inset-0 z-[110]">
             {/* Backdrop */}
             <div 
-              className="lg:hidden fixed inset-0 bg-black/50 z-[110] transition-opacity duration-300"
+              className="absolute inset-0 bg-black/60"
               onClick={() => setIsMenuOpen(false)}
             />
             
             {/* Mobile Menu Panel */}
-            <div className="lg:hidden fixed top-0 right-0 bottom-0 w-[280px] max-w-[85vw] bg-white shadow-2xl z-[120] overflow-hidden">
-              <div className="flex flex-col h-full">
+            <div className="absolute top-0 right-0 bottom-0 w-[85vw] max-w-[320px] bg-white shadow-2xl overflow-y-auto">
+              <div className="flex flex-col min-h-full">
                 {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-100 flex-shrink-0">
+                <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white sticky top-0 z-10">
                   <div className="flex items-center">
                     {/* Logo Image Only */}
                     <img 
@@ -217,26 +217,26 @@ const Header = () => {
                       <div className="w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg flex items-center justify-center">
                         <span className="text-white font-bold text-sm">E</span>
                       </div>
-                      <span className="font-bold bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent text-sm">EdBell</span>
+                      <span className="font-bold text-gray-900 text-sm">EdBell</span>
                     </div>
                   </div>
                   <button
                     onClick={() => setIsMenuOpen(false)}
-                    className="p-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-all duration-200 touch-manipulation"
+                    className="p-2 rounded-lg text-gray-900 hover:text-blue-600 hover:bg-gray-100 transition-all duration-200"
                     aria-label="Close menu"
                   >
-                    <X className="h-5 w-5" />
+                    <X className="h-6 w-6 stroke-[2.5]" />
                   </button>
                 </div>
 
                 {/* Navigation Links */}
-                <nav className="flex-1 overflow-y-auto py-2 px-2">
+                <nav className="flex-1 py-4 px-3">
                   <div className="space-y-1">
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 touch-manipulation"
+                        className="block px-4 py-3.5 text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 border-b border-gray-100 last:border-0"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.name}
@@ -246,18 +246,18 @@ const Header = () => {
                 </nav>
                 
                 {/* Mobile Auth Section */}
-                <div className="border-t border-gray-100 p-4 flex-shrink-0">
+                <div className="border-t border-gray-200 p-4 bg-gray-50">
                   {isAuthenticated ? (
                     <div className="space-y-2">
                       <Link
                         href="/admin"
-                        className="flex items-center space-x-3 px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 touch-manipulation"
+                        className="flex items-center space-x-3 px-4 py-3 text-sm font-medium text-gray-900 hover:text-blue-600 hover:bg-white rounded-lg transition-all duration-200"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         <User className="h-5 w-5" />
                         <span>Admin Dashboard</span>
                       </Link>
-                      <div className="px-4 py-2 text-xs text-gray-600 bg-gray-50 rounded-lg">
+                      <div className="px-4 py-2 text-xs text-gray-600 bg-white rounded-lg">
                         <div className="flex items-center space-x-2">
                           <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                           <span className="truncate">Logged in as: {userEmail}</span>
@@ -268,24 +268,24 @@ const Header = () => {
                           handleLogout();
                           setIsMenuOpen(false);
                         }}
-                        className="w-full flex items-center justify-center space-x-2 px-4 py-3 text-sm font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-200 touch-manipulation"
+                        className="w-full flex items-center justify-center space-x-2 px-4 py-3 text-sm font-medium text-red-600 hover:text-red-700 hover:bg-white rounded-lg transition-all duration-200"
                       >
                         <LogOut className="h-4 w-4" />
                         <span>Logout</span>
                       </button>
                     </div>
                   ) : (
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <Link
                         href="/contact"
-                        className="block px-4 py-3 text-center text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 touch-manipulation"
+                        className="block px-4 py-3 text-center text-base font-medium text-gray-900 hover:text-blue-600 bg-white hover:bg-blue-50 rounded-lg transition-all duration-200 border border-gray-200"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         Get Started
                       </Link>
                       <Link
                         href="/login"
-                        className="block px-4 py-3 text-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation"
+                        className="block px-4 py-3 text-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         Login
@@ -295,7 +295,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-          </>
+          </div>
         )}
       </div>
     </header>
