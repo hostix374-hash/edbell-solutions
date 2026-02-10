@@ -74,14 +74,14 @@ const Header = () => {
         : 'bg-white backdrop-blur-md border-b border-gray-100 shadow-md'
     }`}>
       <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-16 max-w-[1600px] mx-auto">
-        <div className="flex justify-between items-center h-16 lg:h-20">
+        <div className="flex justify-between items-center h-14 sm:h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center group">
+          <Link href="/" className="flex items-center group flex-shrink-0">
             {/* Logo Image Only */}
             <img 
               src="/edbell-logo.png" 
               alt="EdBell EduSolutions" 
-              className="h-12 lg:h-16 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+              className="h-8 sm:h-10 lg:h-16 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
               onError={(e) => {
                 // If image fails to load, replace with fallback
                 const target = e.target as HTMLImageElement;
@@ -91,13 +91,13 @@ const Header = () => {
               }}
             />
             {/* Fallback if logo doesn't load */}
-            <div className="h-12 lg:h-16 hidden items-center">
+            <div className="h-8 sm:h-10 lg:h-16 hidden items-center">
               <div className="flex items-center space-x-2">
-                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-blue-900 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-lg lg:text-xl">E</span>
+                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-blue-900 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
+                  <span className="text-white font-bold text-base sm:text-lg lg:text-xl">E</span>
                 </div>
-                <div>
-                  <h1 className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">EdBell</h1>
+                <div className="hidden sm:block">
+                  <h1 className="text-base sm:text-lg lg:text-2xl font-bold bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">EdBell</h1>
                   <p className="text-xs text-gray-500 -mt-1">Education Solutions</p>
                 </div>
               </div>
@@ -119,13 +119,13 @@ const Header = () => {
           </nav>
 
           {/* Right Side Actions */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
+          <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
             {/* Authentication */}
             {isAuthenticated ? (
               <div className="hidden md:flex items-center space-x-2">
                 <Link
                   href="/admin"
-                  className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 mobile-touch-target"
+                  className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
                 >
                   <User className="h-4 w-4" />
                   <span className="hidden lg:inline">Dashboard</span>
@@ -138,7 +138,7 @@ const Header = () => {
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-200 mobile-touch-target"
+                  className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-200"
                 >
                   <LogOut className="h-4 w-4" />
                   <span className="hidden lg:inline">Logout</span>
@@ -148,16 +148,16 @@ const Header = () => {
               <div className="hidden sm:flex items-center space-x-2 lg:space-x-3">
                 <Link
                   href="/contact"
-                  className="btn-ghost text-sm px-3 lg:px-4 py-2 mobile-touch-target"
+                  className="btn-ghost text-xs sm:text-sm px-2 sm:px-3 lg:px-4 py-2"
                 >
                   <span className="hidden md:inline">Get Started</span>
                   <span className="md:hidden">Start</span>
                 </Link>
                 <Link
                   href="/login"
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-4 lg:px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 text-sm flex items-center space-x-2 mobile-touch-target"
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 text-xs sm:text-sm flex items-center space-x-1 sm:space-x-2"
                 >
-                  <User className="h-4 w-4" />
+                  <User className="h-3 w-3 sm:h-4 sm:w-4" />
                   <span>Login</span>
                 </Link>
               </div>
@@ -171,11 +171,11 @@ const Header = () => {
                 console.log('Menu button clicked, current state:', isMenuOpen);
                 setIsMenuOpen(!isMenuOpen);
               }}
-              className="lg:hidden p-3 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-all duration-200 z-50 relative active:scale-95"
+              className="lg:hidden p-2 sm:p-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-gray-700 bg-gray-50 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 z-50 relative active:scale-95 border border-gray-200"
               aria-label="Toggle menu"
               type="button"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
             </button>
           </div>
         </div>
