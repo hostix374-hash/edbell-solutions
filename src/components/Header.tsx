@@ -68,13 +68,13 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 z-[100] w-full transition-all duration-300 ${
       isScrolled 
         ? 'bg-white backdrop-blur-md border-b border-gray-200 shadow-lg' 
         : 'bg-white backdrop-blur-md border-b border-gray-100 shadow-md'
-    }`}>
+    }`} style={{ minHeight: '56px' }}>
       <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-16 max-w-[1600px] mx-auto">
-        <div className="flex justify-between items-center h-14 sm:h-16 lg:h-20">
+        <div className="flex justify-between items-center h-14 sm:h-16 lg:h-20 w-full">
           {/* Logo */}
           <Link href="/" className="flex items-center group flex-shrink-0">
             {/* Logo Image Only */}
@@ -231,7 +231,7 @@ const Header = () => {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="block px-4 py-3.5 text-lg font-semibold text-black hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 border-b border-gray-200 last:border-0"
+                        className="block px-4 py-3.5 text-lg font-semibold text-black hover:text-black active:text-black focus:text-black hover:bg-blue-50 active:bg-blue-100 rounded-lg transition-all duration-200 border-b border-gray-200 last:border-0"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.name}
@@ -246,7 +246,7 @@ const Header = () => {
                     <div className="space-y-2">
                       <Link
                         href="/admin"
-                        className="flex items-center space-x-3 px-4 py-3 text-base font-semibold text-black hover:text-blue-600 hover:bg-white rounded-lg transition-all duration-200"
+                        className="flex items-center space-x-3 px-4 py-3 text-base font-semibold text-black hover:text-black active:text-black hover:bg-white rounded-lg transition-all duration-200"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         <User className="h-5 w-5" />
@@ -263,7 +263,7 @@ const Header = () => {
                           handleLogout();
                           setIsMenuOpen(false);
                         }}
-                        className="w-full flex items-center justify-center space-x-2 px-4 py-3 text-base font-semibold text-red-600 hover:text-red-700 hover:bg-white rounded-lg transition-all duration-200 border border-red-200"
+                        className="w-full flex items-center justify-center space-x-2 px-4 py-3 text-base font-semibold text-red-600 hover:text-red-700 active:text-red-800 hover:bg-white rounded-lg transition-all duration-200 border border-red-200"
                       >
                         <LogOut className="h-5 w-5" />
                         <span>Logout</span>
@@ -273,14 +273,14 @@ const Header = () => {
                     <div className="space-y-3">
                       <Link
                         href="/contact"
-                        className="block px-4 py-3 text-center text-lg font-semibold text-black hover:text-blue-600 bg-white hover:bg-blue-50 rounded-lg transition-all duration-200 border-2 border-gray-300"
+                        className="block px-4 py-3 text-center text-lg font-semibold text-black hover:text-black active:text-black bg-white hover:bg-blue-50 active:bg-blue-100 rounded-lg transition-all duration-200 border-2 border-gray-300"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         Get Started
                       </Link>
                       <Link
                         href="/login"
-                        className="block px-4 py-3 text-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                        className="block px-4 py-3 text-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 active:from-purple-800 active:to-blue-800 text-white text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         Login
