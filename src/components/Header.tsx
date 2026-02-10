@@ -165,17 +165,21 @@ const Header = () => {
 
             {/* Mobile menu button */}
             <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
+              onClick={() => {
                 console.log('Menu button clicked, current state:', isMenuOpen);
                 setIsMenuOpen(!isMenuOpen);
               }}
-              className="lg:hidden p-2 sm:p-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-gray-900 bg-white hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 z-50 relative active:scale-95 border-2 border-gray-900 shadow-sm"
+              onTouchEnd={(e) => {
+                e.preventDefault();
+                console.log('Menu button touched');
+                setIsMenuOpen(!isMenuOpen);
+              }}
+              className="lg:hidden p-3 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg text-black bg-white hover:text-white hover:bg-blue-600 active:bg-blue-700 transition-all duration-200 z-[101] relative border-2 border-black shadow-md active:scale-95 cursor-pointer"
               aria-label="Toggle menu"
               type="button"
+              style={{ WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}
             >
-              {isMenuOpen ? <X className="h-6 w-6 sm:h-6 sm:w-6 stroke-[2.5]" /> : <Menu className="h-6 w-6 sm:h-6 sm:w-6 stroke-[2.5]" />}
+              {isMenuOpen ? <X className="h-7 w-7 stroke-[3]" /> : <Menu className="h-7 w-7 stroke-[3]" />}
             </button>
           </div>
         </div>
