@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+export const maxDuration = 30;
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -27,11 +29,11 @@ export async function POST(request: NextRequest) {
     // Try to save to MongoDB
     try {
       const connectDB = (await import('@/lib/mongodb')).default;
-      
+
       console.log('🔄 Attempting to connect to MongoDB...');
       await connectDB();
       console.log('✅ Connected to MongoDB successfully');
-      
+
       // Use raw MongoDB collection to avoid Mongoose model issues
       const mongoose = await import('mongoose');
       const contactData = {
@@ -45,20 +47,20 @@ export async function POST(request: NextRequest) {
         createdAt: new Date(),
         updatedAt: new Date()
       };
-      
+
       console.log('🔄 Attempting to save contact to collection...');
       const result = await mongoose.connection.db?.collection('contacts').insertOne(contactData);
       console.log('✅ Successfully saved contact to MongoDB:', result?.insertedId);
-      
+
       return NextResponse.json(
-        { 
+        {
           message: 'Thank you! Your message has been sent successfully. We will get back to you soon.',
           success: true,
           contactId: result?.insertedId
         },
         { status: 200 }
       );
-      
+
     } catch (dbError) {
       console.error('❌ MongoDB save failed:', dbError);
       console.error('❌ Error details:', {
@@ -66,10 +68,10 @@ export async function POST(request: NextRequest) {
         message: dbError instanceof Error ? dbError.message : 'Unknown error',
         stack: dbError instanceof Error ? dbError.stack : 'No stack trace'
       });
-      
+
       // Return success to user but log the error
       return NextResponse.json(
-        { 
+        {
           message: 'Thank you! Your message has been received. We will get back to you soon.',
           success: true,
           note: 'Saved to logs for manual processing',
@@ -81,10 +83,10 @@ export async function POST(request: NextRequest) {
 
   } catch (error: any) {
     console.error('❌ Contact form submission error:', error);
-    
+
     // Even if there's an error, return success to avoid user frustration
     return NextResponse.json(
-      { 
+      {
         message: 'Thank you! Your message has been received. We will get back to you soon.',
         success: true
       },
@@ -96,40 +98,40 @@ export async function POST(request: NextRequest) {
 export async function GET(request: NextRequest) {
   try {
     console.log('🔄 GET /api/contact - Fetching contacts...');
-    
+
     const connectDB = (await import('@/lib/mongodb')).default;
     const Contact = (await import('@/models/Contact')).default;
-    
+
     console.log('🔄 Connecting to MongoDB...');
     await connectDB();
     console.log('✅ Connected to MongoDB successfully');
-    
+
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '10');
     const status = searchParams.get('status');
-    
+
     const skip = (page - 1) * limit;
-    
+
     // Build query
     const query: any = {};
     if (status && status !== 'all') {
       query.status = status;
     }
-    
+
     console.log('🔄 Fetching contacts with query:', query);
-    
+
     // Get contacts with pagination
     const contacts = await Contact.find(query)
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit)
       .lean();
-    
+
     const total = await Contact.countDocuments(query);
-    
+
     console.log(`✅ Found ${contacts.length} contacts (${total} total)`);
-    
+
     return NextResponse.json({
       contacts,
       pagination: {
@@ -143,7 +145,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error('❌ Get contacts error:', error);
     return NextResponse.json(
-      { 
+      {
         error: 'Internal server error',
         contacts: [],
         pagination: { page: 1, limit: 10, total: 0, pages: 0 }
