@@ -87,11 +87,15 @@ const Header = () => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
                 const fallback = target.nextElementSibling as HTMLElement;
-                if (fallback) fallback.style.display = 'flex';
+                if (fallback) {
+                  fallback.style.display = 'flex';
+                  fallback.classList.remove('hidden');
+                }
               }}
+              style={{ display: 'block' }}
             />
             {/* Fallback if logo doesn't load */}
-            <div className="h-8 sm:h-10 lg:h-16 hidden items-center">
+            <div className="h-8 sm:h-10 lg:h-16 hidden items-center" style={{ display: 'none' }}>
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-blue-900 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
                   <span className="text-white font-bold text-base sm:text-lg lg:text-xl">E</span>
@@ -212,11 +216,15 @@ const Header = () => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
                         const fallback = target.nextElementSibling as HTMLElement;
-                        if (fallback) fallback.style.display = 'flex';
+                        if (fallback) {
+                          fallback.style.display = 'flex';
+                          fallback.classList.remove('hidden');
+                        }
                       }}
+                      style={{ display: 'block' }}
                     />
                     {/* Fallback */}
-                    <div className="hidden items-center space-x-2">
+                    <div className="hidden items-center space-x-2" style={{ display: 'none' }}>
                       <div className="w-10 h-10 bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg flex items-center justify-center">
                         <span className="text-white font-bold text-base">E</span>
                       </div>
