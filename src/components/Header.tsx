@@ -96,8 +96,13 @@ const Header = () => {
                 <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-blue-900 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
                   <span className="text-white font-bold text-base sm:text-lg lg:text-xl">E</span>
                 </div>
-                <div className="hidden sm:block">
-                  <h1 className="text-base sm:text-lg lg:text-2xl font-bold bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">EdBell</h1>
+                <div className="block">
+                  <h1 className="text-base sm:text-lg lg:text-2xl font-bold text-gray-900">EdBell</h1>
+                  <p className="text-xs text-gray-600 -mt-1 hidden sm:block">Education Solutions</p>
+                </div>
+              </div>
+            </div>
+          </Link>
                   <p className="text-xs text-gray-500 -mt-1">Education Solutions</p>
                 </div>
               </div>
@@ -171,11 +176,11 @@ const Header = () => {
                 console.log('Menu button clicked, current state:', isMenuOpen);
                 setIsMenuOpen(!isMenuOpen);
               }}
-              className="lg:hidden p-2 sm:p-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-gray-700 bg-gray-50 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 z-50 relative active:scale-95 border border-gray-200"
+              className="lg:hidden p-2 sm:p-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-gray-900 bg-white hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 z-50 relative active:scale-95 border-2 border-gray-900 shadow-sm"
               aria-label="Toggle menu"
               type="button"
             >
-              {isMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
+              {isMenuOpen ? <X className="h-6 w-6 sm:h-6 sm:w-6 stroke-[2.5]" /> : <Menu className="h-6 w-6 sm:h-6 sm:w-6 stroke-[2.5]" />}
             </button>
           </div>
         </div>
