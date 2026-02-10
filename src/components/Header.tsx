@@ -103,11 +103,6 @@ const Header = () => {
               </div>
             </div>
           </Link>
-                  <p className="text-xs text-gray-500 -mt-1">Education Solutions</p>
-                </div>
-              </div>
-            </div>
-          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
