@@ -186,18 +186,22 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden fixed inset-0 z-[110]">
+          <>
             {/* Backdrop */}
             <div 
-              className="absolute inset-0 bg-black/60"
+              className="fixed inset-0 bg-black/70 z-[200] lg:hidden"
               onClick={() => setIsMenuOpen(false)}
+              style={{ top: 0, left: 0, right: 0, bottom: 0, position: 'fixed' }}
             />
             
             {/* Mobile Menu Panel */}
-            <div className="absolute top-0 right-0 bottom-0 w-[85vw] max-w-[320px] bg-white shadow-2xl overflow-y-auto">
-              <div className="flex flex-col min-h-full">
+            <div 
+              className="fixed top-0 right-0 h-screen w-[280px] bg-white shadow-2xl z-[201] lg:hidden overflow-y-auto"
+              style={{ position: 'fixed', top: 0, right: 0, height: '100vh', width: '280px' }}
+            >
+              <div className="flex flex-col h-full">
                 {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b-2 border-gray-300 bg-white sticky top-0 z-10">
+                <div className="flex items-center justify-between p-4 border-b-2 border-gray-300 bg-white">
                   <div className="flex items-center">
                     {/* Logo Image Only */}
                     <img 
@@ -221,21 +225,22 @@ const Header = () => {
                   </div>
                   <button
                     onClick={() => setIsMenuOpen(false)}
-                    className="p-2 rounded-lg text-black hover:text-blue-600 hover:bg-gray-100 transition-all duration-200 border-2 border-gray-900"
+                    className="p-2 rounded-lg text-black hover:text-white hover:bg-red-600 transition-all duration-200 border-2 border-black"
                     aria-label="Close menu"
+                    type="button"
                   >
-                    <X className="h-6 w-6 stroke-[2.5]" />
+                    <X className="h-6 w-6 stroke-[3]" />
                   </button>
                 </div>
 
                 {/* Navigation Links */}
-                <nav className="flex-1 py-4 px-3">
-                  <div className="space-y-1">
+                <nav className="flex-1 py-6 px-4 bg-white">
+                  <div className="space-y-2">
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="block px-4 py-3.5 text-lg font-semibold text-black hover:text-black active:text-black focus:text-black hover:bg-blue-50 active:bg-blue-100 rounded-lg transition-all duration-200 border-b border-gray-200 last:border-0"
+                        className="block px-4 py-4 text-xl font-bold text-black hover:text-black active:text-black focus:text-black hover:bg-blue-100 active:bg-blue-200 rounded-lg transition-all duration-200 border-b-2 border-gray-200 last:border-0"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.name}
@@ -245,20 +250,20 @@ const Header = () => {
                 </nav>
                 
                 {/* Mobile Auth Section */}
-                <div className="border-t-2 border-gray-300 p-4 bg-gray-50">
+                <div className="border-t-2 border-gray-300 p-4 bg-gray-100">
                   {isAuthenticated ? (
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <Link
                         href="/admin"
-                        className="flex items-center space-x-3 px-4 py-3 text-base font-semibold text-black hover:text-black active:text-black hover:bg-white rounded-lg transition-all duration-200"
+                        className="flex items-center space-x-3 px-4 py-3 text-lg font-bold text-black hover:text-black active:text-black hover:bg-white rounded-lg transition-all duration-200"
                         onClick={() => setIsMenuOpen(false)}
                       >
-                        <User className="h-5 w-5" />
+                        <User className="h-6 w-6" />
                         <span>Admin Dashboard</span>
                       </Link>
-                      <div className="px-4 py-2 text-sm font-medium text-gray-800 bg-white rounded-lg border border-gray-200">
+                      <div className="px-4 py-3 text-sm font-medium text-gray-800 bg-white rounded-lg border-2 border-gray-300">
                         <div className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                           <span className="truncate">Logged in as: {userEmail}</span>
                         </div>
                       </div>
@@ -267,9 +272,9 @@ const Header = () => {
                           handleLogout();
                           setIsMenuOpen(false);
                         }}
-                        className="w-full flex items-center justify-center space-x-2 px-4 py-3 text-base font-semibold text-red-600 hover:text-red-700 active:text-red-800 hover:bg-white rounded-lg transition-all duration-200 border border-red-200"
+                        className="w-full flex items-center justify-center space-x-2 px-4 py-3 text-lg font-bold text-red-600 hover:text-red-700 active:text-red-800 hover:bg-white rounded-lg transition-all duration-200 border-2 border-red-300"
                       >
-                        <LogOut className="h-5 w-5" />
+                        <LogOut className="h-6 w-6" />
                         <span>Logout</span>
                       </button>
                     </div>
@@ -277,14 +282,14 @@ const Header = () => {
                     <div className="space-y-3">
                       <Link
                         href="/contact"
-                        className="block px-4 py-3 text-center text-lg font-semibold text-black hover:text-black active:text-black bg-white hover:bg-blue-50 active:bg-blue-100 rounded-lg transition-all duration-200 border-2 border-gray-300"
+                        className="block px-4 py-3 text-center text-xl font-bold text-black hover:text-black active:text-black bg-white hover:bg-blue-100 active:bg-blue-200 rounded-lg transition-all duration-200 border-2 border-gray-400"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         Get Started
                       </Link>
                       <Link
                         href="/login"
-                        className="block px-4 py-3 text-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 active:from-purple-800 active:to-blue-800 text-white text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                        className="block px-4 py-3 text-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 active:from-purple-800 active:to-blue-800 text-white text-xl font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         Login
@@ -294,7 +299,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </header>
